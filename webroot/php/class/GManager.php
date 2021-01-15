@@ -11,7 +11,7 @@ class GManager {
         $this->mgr = new sGManager();
         // app
         $this->mgr->app = new sGApp();
-        $this->mgr->app->app_name = "SogetechCRM";
+        $this->mgr->app->app_name = "SogetekCRM";
         $this->mgr->app->lang = "fr";
         $this->mgr->app->title = $this->mgr->app->app_name;
         $this->mgr->app->google_desc = "";
