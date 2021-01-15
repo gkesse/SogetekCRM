@@ -15,5 +15,5 @@ Liens d'accès au projet : [SogetekCRM](https://readydev.ovh:8989/)
 
 # Codes sources
 
-[Point d'entrée](/webroot/index.php)
-[Classes PHP](/webroot/php/class)
+* [Point d'entrée](/webroot/index.php)
+* [Classes PHP](/webroot/php/class)
