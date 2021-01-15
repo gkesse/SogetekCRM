@@ -3,7 +3,7 @@ Bibliothèque de fonctions PHP pour le développement du CRM de Sogetek.
 
 ![alt logo_org.png](https://raw.githubusercontent.com/gkesse/SogetekCRM/main/webroot/data/img/logo_org.png "Sogetek - Informatique")
 
-Liens d'accès au projet : [SogetekCRM](https://readydev.ovh:8989/)
+Liens d'accès au projet : [SogetekCRM](http://sogetek-crm.freeddns.org:8989/)
 
 # Présentation du projet
 
