@@ -1,7 +1,7 @@
 # SogetekCRM
-Bibliothèque de fonctions PHP pour le développement du CRM de Sogetech.
+Bibliothèque de fonctions PHP pour le développement du CRM de Sogetek.
 
-![alt logo_org.png](https://raw.githubusercontent.com/gkesse/SogetekCRM/main/webroot/data/img/logo_org.png "Sogetech - Informatique")
+![alt logo_org.png](https://raw.githubusercontent.com/gkesse/SogetekCRM/main/webroot/data/img/logo_org.png "Sogetek - Informatique")
 
 Liens d'accès au projet : [SogetekCRM](https://readydev.ovh:8989/)
 
