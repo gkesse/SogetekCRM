@@ -7,8 +7,8 @@ Liens d'accès au projet : [SogetekCRM](https://readydev.ovh:8989/)
 
 # Présentation du projet
 
-[Page d'accueil](#page-daccueil)  
-[Codes sources](#codes-sources)  
+* [Page d'accueil](#page-daccueil)
+* [Codes sources](#codes-sources)
 
 # Page d'accueil
 ![alt accueil.png](https://raw.githubusercontent.com/gkesse/SogetekCRM/main/webroot/data/img/p_accueil.png "Page d'accueil")
