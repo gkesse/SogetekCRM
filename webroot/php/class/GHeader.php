@@ -47,7 +47,7 @@ class GHeader extends GWidget {
         */
         //===============================================
         // font_awesome
-        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/font_awesome/4.7.0/css/font-awesome.min.css'/>\n");
+        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/font_awesome/css/font-awesome.min.css'/>\n");
         //===============================================
         // google_fonts
         GManager::Instance()->loadFont();
@@ -57,6 +57,7 @@ class GHeader extends GWidget {
         echo sprintf("<script type='text/javascript' src='/js/request/request.js'></script>\n");
         //===============================================
         // style
+        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/composer/vendor/benhall14/php-calendar/html/css/calendar.css'/>\n");
         echo sprintf("<link rel='stylesheet' type='text/css' href='/css/style.php'/>\n");
         //===============================================
         echo sprintf("</head>\n");

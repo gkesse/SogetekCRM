@@ -18,10 +18,11 @@ class GManager {
         $this->mgr->app->debug = &$_SESSION["debug"];
         $this->mgr->app->last_url = &$_SESSION["last_url"];
         $this->mgr->app->sqlite_db_path = "/data/sqlite/config.dat";
-        $this->mgr->app->google_fonts = "/libs/google_fonts/1.0.0";
+        $this->mgr->app->google_fonts = "/libs/google_fonts";
         $this->mgr->app->logo_web = "/data/img/logo_web.png";
         $this->mgr->app->logo_flat = "/data/img/logo_flat.png";
         $this->mgr->app->logo_org = "/data/img/logo_org.png";
+        $this->mgr->app->filesystem = &$_SESSION["filesystem"];;
     }
     //===============================================
     public static function Instance() {
@@ -46,6 +47,7 @@ class GManager {
         $this->clearDebug();
         $this->getPageId();
         $this->lastUrl();
+        $this->initFilesystem();
     }
     //===============================================
     // last_url
@@ -90,6 +92,13 @@ class GManager {
         $lApp->debug = "";
     }
     //===============================================
+    // filesystem
+    //===============================================
+    public function initFilesystem() {
+        $lApp = $this->mgr->app;
+        if(!$lApp->filesystem) {$lApp->filesystem = ".";}
+    }
+    //===============================================
     // font
     //===============================================
     public function loadFont() {
@@ -112,6 +121,21 @@ class GManager {
     public function redirect($url) {
         $lLocation = sprintf("Location: %s", $url);
         header($lLocation);
+    }
+    //===============================================
+    public function redirectPost() {
+        if(!empty($_POST) OR !empty($_FILES)) {
+            $_SESSION["_SAVE_POST_"] = $_POST;
+            $_SESSION["_SAVE_FILES_"] = $_FILES;
+            $lUrl = $_SERVER["REQUEST_URI"];
+            header("Location: " . $lUrl);
+            exit;
+        }
+        if(isset($_SESSION["_SAVE_POST_"])) {
+            $_POST = $_SESSION["_SAVE_POST_"];
+            $_FILES = $_SESSION["_SAVE_FILES_"];
+            unset($_SESSION["_SAVE_POST_"], $_SESSION["_SAVE_FILES_"]);
+        }
     }
     //===============================================
     // string
@@ -156,6 +180,8 @@ class sGApp {
     public $logo_web;
     public $logo_flat;
     public $logo_org;
+    // filesystem
+    public $filesystem;
 }
 //===============================================
 ?>

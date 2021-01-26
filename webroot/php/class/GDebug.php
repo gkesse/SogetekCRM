@@ -23,8 +23,8 @@ class GDebug extends GWidget {
     //===============================================
     public function request() {
         $lApp = GManager::Instance()->getData()->app;
-        if(isset($_REQUEST["req"])) {
-            $lReq = $_REQUEST["req"];
+        if(isset($_POST["req"])) {
+            $lReq = $_POST["req"];
             if($lReq == "clear") {
                 $lApp->debug = "";
             }

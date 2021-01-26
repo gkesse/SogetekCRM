@@ -9,6 +9,7 @@ $config = array(
 "app_bg_color" => "#102030",
 "app_light_color" => "#304050",
 "app_font_size" => 20,
+"app_icon_size" => 16,
 "login_size" => 30,
 );
 //===============================================
@@ -196,6 +197,43 @@ span {
     white-space: nowrap;
 }
 /* ============================================== */
+/* error */
+.error_id {
+    padding: 50px 10px;
+    text-align: center;
+}
+/* ============================================== */
+/* filesystem */
+.filesystem_id {
+
+}
+.filesystem_id .header {
+    padding: 10px 10px;
+    border-bottom: 1px solid #ffffff;
+}
+.filesystem_id .header .sep {
+    font-size: <?php echo $config['app_icon_size']; ?>px;
+    margin: 0px 5px;
+}
+.filesystem_id .header .form {
+    display: inline-block;
+}
+.filesystem_id .body .file {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+    width: 100%;
+    text-align: left;
+}
+.filesystem_id .body .file:hover {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+.filesystem_id .body .file .icon {
+    font-size: <?php echo $config['app_icon_size']; ?>px;
+    margin-right: 5px;
+}
+/* ============================================== */
 /* html */
 .html_id {
     position: relative;
@@ -311,6 +349,25 @@ span {
 /* main */
 .main_id {
     padding: 10px;
+}
+/* ============================================== */
+/* sqlite */
+.sqlite_id {
+
+}
+.sqlite_id .item {
+    display: block;
+    padding: 5px 10px;
+    cursor: pointer;
+    width: 100%;
+    text-align: left;
+}
+.sqlite_id .item:hover {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    border-radius: 5px;
+}
+.sqlite_id .item .icon {
+    padding-right: 5px;
 }
 /* ============================================== */
 /* titlebar */

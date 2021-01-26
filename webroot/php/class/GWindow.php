@@ -13,8 +13,13 @@ class GWindow extends GWidget {
     public function load() {
         $this->m_widgetMap->addStack("home", "home", "Accueil");
         $this->m_widgetMap->addStack("home/login", "login", "Connexion");
+        //
         $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");
+        $this->m_widgetMap->addStack("home/sqlite/show", "sqliteshow", "Affichage de la table");
+        //
         $this->m_widgetMap->addStack("home/timesheet", "timesheet", "Feuille de temps");
+        $this->m_widgetMap->addStack("home/filesystem", "filesystem", "Filesystem");
+        //
         $this->m_widgetMap->addStack("home/debug", "debug", "Debug");
     }
     //===============================================

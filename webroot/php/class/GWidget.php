@@ -26,11 +26,15 @@ class GWidget {
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
         if($key == "login") {return new GLogin();}
+        //
         if($key == "sqlite") {return new GSQLiteUi();}
+        if($key == "sqliteshow") {return new GSQLiteShow();}
+        //
         if($key == "timesheet") {return new GTimesheet();}
+        if($key == "filesystem") {return new GFilesystem();}
         if($key == "debug") {return new GDebug();}
         // default
-        return new GWidget();
+        return new GError();
     }
     //===============================================
     // method

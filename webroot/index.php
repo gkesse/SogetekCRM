@@ -1,7 +1,8 @@
 <?php   
 //===============================================
-require $_SERVER["DOCUMENT_ROOT"]."/php/class/GAutoload.php";
+require "./php/class/GAutoload.php";
 //===============================================
+GManager::Instance()->redirectPost();
 GProcess::Instance()->run();
 //===============================================
 ?>
