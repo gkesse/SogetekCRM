@@ -2,6 +2,8 @@
 //===============================================
 class GSQLiteShow extends GWidget {
     //===============================================
+    private $order = "";
+    //===============================================
     public function __construct() {
         
     }
@@ -15,8 +17,8 @@ class GSQLiteShow extends GWidget {
         $lHeaders = array();
         if($lApp->table_name != "") {
             $lDataMap = GSQLite::Instance()->queryMap(sprintf("
-            select * from %s order by view_key
-            ", $lApp->table_name));
+            select * from %s %s
+            ", $lApp->table_name, $this->order));
             $lHeaders = GSQLite::Instance()->getHeaders();
         }
         echo sprintf("<div class='table_id'>\n");
@@ -51,7 +53,8 @@ class GSQLiteShow extends GWidget {
             $lReq = $_POST["req"];
             if($lReq == "show_table") {
                 $lApp->table_name = $_POST["table"];
-                $lApp->title = $lApp->table_name;
+                if($lApp->table_name == "view_data") {$this->order = "order by view_key";}
+                else if($lApp->table_name == "config_data") {$this->order = "order by config_key";}
             }
         }
     }
