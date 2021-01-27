@@ -17,6 +17,8 @@ class GProcess {
     //===============================================
     public function run() {
         GManager::Instance()->loadData();
+        GView::Instance()->increment();
+        GSQLite::Instance();
         GWidget::Create("header")->run();
         GWidget::Create("body")->run();
         GWidget::Create("footer")->run();

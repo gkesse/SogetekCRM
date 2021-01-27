@@ -57,7 +57,6 @@ class GHeader extends GWidget {
         echo sprintf("<script type='text/javascript' src='/js/request/request.js'></script>\n");
         //===============================================
         // style
-        echo sprintf("<link rel='stylesheet' type='text/css' href='/libs/composer/vendor/benhall14/php-calendar/html/css/calendar.css'/>\n");
         echo sprintf("<link rel='stylesheet' type='text/css' href='/css/style.php'/>\n");
         //===============================================
         echo sprintf("</head>\n");

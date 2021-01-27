@@ -13,7 +13,7 @@ class GManager {
         $this->mgr->app = new sGApp();
         $this->mgr->app->app_name = "SogetekCRM";
         $this->mgr->app->lang = "fr";
-        $this->mgr->app->title = $this->mgr->app->app_name;
+        $this->mgr->app->title = "";
         $this->mgr->app->google_desc = "";
         $this->mgr->app->debug = &$_SESSION["debug"];
         $this->mgr->app->last_url = &$_SESSION["last_url"];
@@ -22,7 +22,9 @@ class GManager {
         $this->mgr->app->logo_web = "/data/img/logo_web.png";
         $this->mgr->app->logo_flat = "/data/img/logo_flat.png";
         $this->mgr->app->logo_org = "/data/img/logo_org.png";
-        $this->mgr->app->filesystem = &$_SESSION["filesystem"];;
+        $this->mgr->app->filesystem = &$_SESSION["filesystem"];
+        $this->mgr->app->view_offset = 10;
+        $this->mgr->app->table_name = &$_SESSION["table_name"];
     }
     //===============================================
     public static function Instance() {
@@ -182,6 +184,10 @@ class sGApp {
     public $logo_org;
     // filesystem
     public $filesystem;
+    // view
+    public $view_offset;
+    // table
+    public $table_name;
 }
 //===============================================
 ?>

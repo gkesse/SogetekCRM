@@ -370,6 +370,48 @@ span {
     padding-right: 5px;
 }
 /* ============================================== */
+/* table */
+.table_id {
+    display: inline-block;
+    padding: 10px;
+}
+.table_id .name {
+    background-color: #305050;
+    border: 1px solid #aaaaaa;
+    border-bottom-color: transparent;
+    padding: 5px 10px;
+    text-align: center;
+}
+.table_id table {
+    border-collapse: collapse;
+}
+.table_id table thead tr {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    text-align: left;
+}
+.table_id table th, .table_id  table td {
+    padding: 5px 10px;
+    border: 1px solid #aaaaaa;
+}
+.table_id table th {
+    font-weight: normal;
+}
+.table_id  table td {
+    color: #aaaaaa;
+}
+.table_id table tbody tr {
+
+}
+.table_id table tbody tr:nth-of-type(even) {
+
+}
+.table_id table tbody tr:last-of-type {
+
+}
+.table_id table tbody tr.active-row {
+
+}
+/* ============================================== */
 /* titlebar */
 .titlebar_id {
     position: relative;

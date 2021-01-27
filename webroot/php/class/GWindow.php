@@ -25,7 +25,7 @@ class GWindow extends GWidget {
     //===============================================
     public function start() {
         $lApp = GManager::Instance()->getData()->app;
-        $lApp->title = $this->m_widgetMap->getTitle($lApp->page_id);
+        if($lApp->title == "") {$lApp->title = $this->m_widgetMap->getTitle($lApp->page_id);}
     }
     //===============================================
     public function run() {
