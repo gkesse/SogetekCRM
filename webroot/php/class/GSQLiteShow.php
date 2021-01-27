@@ -15,7 +15,7 @@ class GSQLiteShow extends GWidget {
         $lHeaders = array();
         if($lApp->table_name != "") {
             $lDataMap = GSQLite::Instance()->queryMap(sprintf("
-            select * from %s
+            select * from %s order by view_key
             ", $lApp->table_name));
             $lHeaders = GSQLite::Instance()->getHeaders();
         }
