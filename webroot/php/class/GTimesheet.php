@@ -18,9 +18,9 @@ class GTimesheet extends GWidget {
         echo sprintf("</div>\n");
         echo sprintf("<div class='date'>\n");
         echo sprintf("<div class='tick'>Date :</div>\n");
-        echo sprintf("<div class='tick clock'>28/01/2021</div>\n");
+        echo sprintf("<div class='tick clock'>27/01/2021</div>\n");
         echo sprintf("<div class='tick'>heure :</div>\n");
-        echo sprintf("<div class='tick clock'>01h30</div>\n");
+        echo sprintf("<div class='tick clock'>14h30</div>\n");
         echo sprintf("</div>\n");
         echo sprintf("<div class='row'>\n");
         echo sprintf("<div class='key'><label class='label'>Collaborateur : </label></div>\n");
