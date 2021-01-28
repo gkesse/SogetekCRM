@@ -415,6 +415,8 @@ span {
 /* timesheet */
 .timesheet_id {
     padding: 10px;
+    overflow: hidden;
+    overflow-x: auto;
 }
 .timesheet_id .content {
     border: 1px solid #305050;
@@ -422,6 +424,8 @@ span {
 .timesheet_id .content .item {
     border: 1px solid #305050;
     padding: 10px;
+    overflow: hidden;
+    overflow-x: auto;
 }
 .timesheet_id .content .item.month {
     background-color: #305050;
@@ -449,6 +453,9 @@ span {
     text-align: center;
     font-size: 0px;
 }
+.timesheet_id .content .item .date .date2 {
+    margin-bottom: 10px;
+}
 .timesheet_id .content .item .date .tick {
     background-color: <?php echo $config['app_light_color']; ?>;
     border: 1px solid <?php echo $config['app_light_color']; ?>;
@@ -474,7 +481,7 @@ span {
     top: 0px; 
     bottom: 0px; 
     left: 0px;
-    min-width: 150px;
+    min-width: 120px;
 }
 .timesheet_id .content .item .row .key .label {
     display: inline-block;
@@ -486,7 +493,7 @@ span {
     top: 0px; 
     bottom: 0px;
     right: 0px;
-    left: 150px;
+    left: 120px;
     padding: 0px 10px;
 }
 .timesheet_id .content .item .row .field .input {
@@ -577,7 +584,7 @@ span {
 /* ============================================== */
 /* window */
 .window_id {
-    border: 1px solid #ffffff;
+    border: 1px solid #aaaaaa;
     border-radius: 5px;
 }
 /* ============================================== */
