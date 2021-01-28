@@ -22,8 +22,8 @@ class GSQLiteShow extends GWidget {
             $lHeaders = GSQLite::Instance()->getHeaders();
         }
         echo sprintf("<div class='table_id'>\n");
-        echo sprintf("<table>\n");
         echo sprintf("<div class='name'>%s</div>\n", $lApp->table_name);
+        echo sprintf("<table>\n");
         echo sprintf("<thead>\n");
         echo sprintf("<tr>\n");
         for($i = 0; $i < count($lHeaders); $i++) {

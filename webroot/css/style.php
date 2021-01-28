@@ -412,6 +412,89 @@ span {
 
 }
 /* ============================================== */
+/* timesheet */
+.timesheet_id {
+    padding: 10px;
+}
+.timesheet_id .content {
+    border: 1px solid #305050;
+}
+.timesheet_id .content .item {
+    border: 1px solid #305050;
+    padding: 10px;
+}
+.timesheet_id .content .item.month {
+    background-color: #305050;
+    padding: 5px 10px;
+    text-align: center;
+}
+.timesheet_id .content .item .profil {
+    padding: 10px 10px;
+    text-align: center;
+}
+.timesheet_id .content .item .profil .img {
+    display: inline-block;
+    background-color: #305050;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding-top: 10px;
+}
+.timesheet_id .content .item .profil .img .icon {
+    display: inline-block;
+    font-size: 120px;
+}
+.timesheet_id .content .item .date {
+    padding: 10px;
+    text-align: center;
+    font-size: 0px;
+}
+.timesheet_id .content .item .date .tick {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    border: 1px solid <?php echo $config['app_light_color']; ?>;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 2px 10px;
+    font-size: 20px;
+}
+.timesheet_id .content .item .date .tick.clock {
+    background-color: transparent;
+    border: 1px solid <?php echo $config['app_light_color']; ?>;
+    margin-right: 5px;
+}
+.timesheet_id .content .item .row {
+    border: 1px solid #305050;
+    margin-bottom: 10px;
+    position: relative;
+    min-height: 30px;
+}
+.timesheet_id .content .item .row .key {
+    background-color: #305050;
+    position: absolute;
+    top: 0px; 
+    bottom: 0px; 
+    left: 0px;
+    min-width: 150px;
+}
+.timesheet_id .content .item .row .key .label {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 10px;
+}
+.timesheet_id .content .item .row .field {
+    position: absolute;
+    top: 0px; 
+    bottom: 0px;
+    right: 0px;
+    left: 150px;
+    padding: 0px 10px;
+}
+.timesheet_id .content .item .row .field .input {
+    width: 100%;
+    display: inline-block;
+    vertical-align: middle;
+}
+/* ============================================== */
 /* titlebar */
 .titlebar_id {
     position: relative;
