@@ -25,7 +25,7 @@ var GManager = (function() {
             //===============================================
             init: function() {
                 this.construct();
-                this.setTime();
+                //this.setTime();
             },
             //===============================================
             construct: function() {
@@ -36,18 +36,43 @@ var GManager = (function() {
                 this.mgr.app.app_name = "ReadyApp";
             },
             //===============================================
+            // request
+            //===============================================
+            run: function(obj, req) {
+                //===============================================
+                // view
+                //===============================================
+                if(req == "view_get_datetime") {
+                    this.countTime();
+                }
+                //===============================================
+            },
+            //===============================================
             // view
             //===============================================
             setTime: function() {
                 var lApp = GManager.Instance().mgr.app;
                 this.countTime();
-                lApp.view_time = setInterval(this.countTime, 1000);
+                //lApp.view_time = setInterval(this.countTime, 1000);
             },
             //===============================================
             countTime: function() {
                 var lViewTime = document.getElementById("view_time");
-                var lDate = new Date();
-                lViewTime.innerHTML = lDate.toLocaleTimeString();
+                //var lDate = new Date();
+                //lViewTime.innerHTML = lDate.toLocaleTimeString();
+                var lXmlhttp = new XMLHttpRequest();
+                lXmlhttp.onreadystatechange = function() {
+                    if(this.readyState == 4 && this.status == 200) {
+                        var lData = this.responseText;
+                        lViewTime.innerHTML = "lData";
+                        alert(lData);
+                    }
+                }
+                lXmlhttp.open("POST", "/php/request/request.php", true);
+                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+                lXmlhttp.send(
+                    "req=" + "view_get_datetime"
+				);
             }
             //===============================================
         };

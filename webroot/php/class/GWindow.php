@@ -11,7 +11,7 @@ class GWindow extends GWidget {
     // method
     //===============================================
     public function load() {
-        $this->m_widgetMap->addStack("home", "home", "1000");
+        $this->m_widgetMap->addStack("home", "home", "Accueil");
         $this->m_widgetMap->addStack("home/login", "login", "Connexion");
         //
         $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");

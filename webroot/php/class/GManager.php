@@ -83,8 +83,13 @@ class GManager {
     // request
     //===============================================
     public function request() {
-        $lReq = $_REQUEST["req"];
-        if($lReq == "debug_clear") {$this->clearDebug(); return;}
+        $lReq = $_POST["req"];
+        // view
+        if($lReq == "view_get_datetime") {
+            $lData = array();
+            $lData["time"] = "20:00:00";
+            print_r(json_encode($lData));
+        }
     }
     //===============================================
     // debug
