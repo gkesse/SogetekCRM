@@ -23,6 +23,15 @@ class GView {
         else {$this->updateView();}
     }    
     //===============================================
+    public function getView() {
+        $lApp = GManager::Instance()->getData()->app;
+        $lView = GSQLite::Instance()->queryValue(sprintf("
+        select view_value from view_data
+        where view_key='%s'
+        ", $lApp->page_id));
+        return $lView;
+    }    
+    //===============================================
     public function countView() {
         $lApp = GManager::Instance()->getData()->app;
         $lCount = GSQLite::Instance()->queryValue(sprintf("

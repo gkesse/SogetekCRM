@@ -17,6 +17,8 @@ class GBody extends GWidget {
         $this->start();
         GWidget::Create("titlebar")->run();
         GWidget::Create("spacev")->space(10);
+        GWidget::Create("view")->run();
+        GWidget::Create("spacev")->space(5);
         GWidget::Create("addresskey")->run();
         GWidget::Create("spacev")->space(10);
         $lWindow->run();

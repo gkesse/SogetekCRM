@@ -52,10 +52,6 @@ class GHeader extends GWidget {
         // google_fonts
         GManager::Instance()->loadFont();
         //===============================================
-        // script
-        echo sprintf("<script type='text/javascript' src='/js/class/GProcess.js'></script>\n");
-        echo sprintf("<script type='text/javascript' src='/js/request/request.js'></script>\n");
-        //===============================================
         // style
         echo sprintf("<link rel='stylesheet' type='text/css' href='/css/style.php'/>\n");
         //===============================================

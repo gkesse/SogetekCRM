@@ -498,6 +498,7 @@ span {
 }
 .timesheet_id .content .item .row .field .input {
     width: 100%;
+    height: 100%;
     display: inline-block;
     vertical-align: middle;
 }
@@ -560,7 +561,7 @@ span {
     color: #aaaaaa;
     text-align: center;
     padding: 5px 0px;
-    border-radius: 6px;
+    border-radius: 5px;
     position: absolute;
     z-index: 1;
     width: 120px;
@@ -580,6 +581,50 @@ span {
     border-width: 5px;
     border-style: solid;
     border-color: transparent transparent <?php echo $config['app_light_color']; ?> transparent;
+}
+/* ============================================== */
+/* view */
+.view_id {
+    position: relative;
+    min-height: 30px;
+}
+.view_id .date {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    padding-top: 2px;
+    border-radius: 5px;
+    min-width: 100px;
+    text-align: center;
+}
+.view_id .view {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 155px;
+    right: 90px;
+    text-align: center;
+}
+.view_id .view .data {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    display: inline-block;
+    text-align: center;
+    height: 100%;
+    padding: 2px 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+.view_id .time {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    right: 0px;
+    min-width: 80px;
+    text-align: center;
+    padding-top: 2px;
+    border-radius: 5px;
 }
 /* ============================================== */
 /* window */

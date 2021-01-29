@@ -22,6 +22,7 @@ class GWidget {
         if($key == "button") {return new GButton();}
         if($key == "icon") {return new GIcon();}
         if($key == "form") {return new GForm();}
+        if($key == "view") {return new GViewUi();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}

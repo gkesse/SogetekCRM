@@ -7,25 +7,22 @@ class GSQLite {
     //===============================================
     private function __construct() {
         // config_data
-        $lQuery = sprintf("
+        $this->queryWrite(sprintf("
         create table if not exists config_data (
         config_key text,
         config_value text
-        )");
-        $this->queryWrite($lQuery);
+        )"));
         // view_data
-        $lQuery = sprintf("
+        $this->queryWrite(sprintf("
         create table if not exists view_data (
         view_key text,
         view_value integer
-        )");
-        $this->queryWrite($lQuery);
+        )"));
         // tables
-        $lQuery = sprintf("
+        $this->queryWrite(sprintf("
         select * from view_data
         order by view_key
-        ");
-        $this->queryShow($lQuery, "40;20", 20);
+        "), "40;20", 20);
     }
     //===============================================
     public static function Instance() {
