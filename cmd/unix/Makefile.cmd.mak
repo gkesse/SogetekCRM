@@ -19,3 +19,14 @@ apache_stop:
 apache_restart:
 	sudo service apache2 restart
 #================================================
+# sqlite
+sqlite_show_tables:
+	sqlite3 $(GSQLITE_DB_PATH) "select name from sqlite_master"
+sqlite_show_table:
+	sqlite3 $(GSQLITE_DB_PATH) "select * from $(GSQLITE_TABLE)"
+sqlite_select_where:
+	sqlite3 $(GSQLITE_DB_PATH) "select * from $(GSQLITE_TABLE) $(GSQLITE_SELECT_WHERE)"
+sqlite_delete_where:
+	sqlite3 $(GSQLITE_DB_PATH) "delete from $(GSQLITE_TABLE) $(GSQLITE_DELETE_WHERE)"
+	sqlite3 $(GSQLITE_DB_PATH) "select * from $(GSQLITE_TABLE)"
+#================================================
