@@ -9,7 +9,7 @@ function sGApp() {
     // app
     this.app_name = null;
     // view
-    this.view_time = null;
+    this.view_timer = null;
 }
 //===============================================
 // manager
@@ -25,7 +25,7 @@ var GManager = (function() {
             //===============================================
             init: function() {
                 this.construct();
-                //this.setTime();
+                this.setTime();
             },
             //===============================================
             construct: function() {
@@ -43,7 +43,7 @@ var GManager = (function() {
                 // view
                 //===============================================
                 if(req == "view_get_datetime") {
-                    this.countTime();
+                    // this.countTime();
                 }
                 //===============================================
             },
@@ -53,19 +53,20 @@ var GManager = (function() {
             setTime: function() {
                 var lApp = GManager.Instance().mgr.app;
                 this.countTime();
-                //lApp.view_time = setInterval(this.countTime, 1000);
+                lApp.view_timer = setInterval(this.countTime, 1000);
             },
             //===============================================
             countTime: function() {
+                var lViewDate = document.getElementById("view_date");
                 var lViewTime = document.getElementById("view_time");
                 //var lDate = new Date();
                 //lViewTime.innerHTML = lDate.toLocaleTimeString();
                 var lXmlhttp = new XMLHttpRequest();
                 lXmlhttp.onreadystatechange = function() {
                     if(this.readyState == 4 && this.status == 200) {
-                        var lData = this.responseText;
-                        lViewTime.innerHTML = "lData";
-                        alert(lData);
+                        var lData = JSON.parse(this.responseText);
+                        lViewDate.innerHTML = lData["date"];
+                        lViewTime.innerHTML = lData["time"];
                     }
                 }
                 lXmlhttp.open("POST", "/php/request/request.php", true);

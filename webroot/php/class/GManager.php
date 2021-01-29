@@ -87,7 +87,9 @@ class GManager {
         // view
         if($lReq == "view_get_datetime") {
             $lData = array();
-            $lData["time"] = "20:00:00";
+            date_default_timezone_set('Europe/Paris');
+            $lData["date"] = date("d/m/Y");
+            $lData["time"] = date("H:i:s");
             print_r(json_encode($lData));
         }
     }
