@@ -61,17 +61,13 @@ var GManager = (function() {
                 var lViewTime = document.getElementById("view_time");
                 var lDate = new Date();
                 var lDay = lDate.getDate();
-                var lMonth = lDate.getMonth();
+                var lMonth = lDate.getMonth() + 1;
                 var lYear = lDate.getFullYear();
-                var lDateFormat = this.pad(lDay) + "/" + this.pad(lMonth) + "/" + lYear;
+                lDay = (lDay < 10) ? "0" + lDay : lDay;
+                lMonth = (lMonth < 10) ? "0" + lMonth : lMonth;
+                var lDateFormat = lDay + "/" + lMonth + "/" + lYear;
                 lViewDate.innerHTML = lDateFormat;
                 lViewTime.innerHTML = lDate.toLocaleTimeString();
-            },
-            //===============================================
-            // string
-            //===============================================
-            function pad(s) { 
-                return (s < 10) ? '0' + s : s; 
             }
             //===============================================
         };
