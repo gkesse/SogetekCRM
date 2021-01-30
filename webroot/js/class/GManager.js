@@ -59,21 +59,19 @@ var GManager = (function() {
             countTime: function() {
                 var lViewDate = document.getElementById("view_date");
                 var lViewTime = document.getElementById("view_time");
-                //var lDate = new Date();
-                //lViewTime.innerHTML = lDate.toLocaleTimeString();
-                var lXmlhttp = new XMLHttpRequest();
-                lXmlhttp.onreadystatechange = function() {
-                    if(this.readyState == 4 && this.status == 200) {
-                        var lData = JSON.parse(this.responseText);
-                        lViewDate.innerHTML = lData["date"];
-                        lViewTime.innerHTML = lData["time"];
-                    }
-                }
-                lXmlhttp.open("POST", "/php/request/request.php", true);
-                lXmlhttp.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-                lXmlhttp.send(
-                    "req=" + "view_get_datetime"
-				);
+                var lDate = new Date();
+                var lDay = lDate.getDate();
+                var lMonth = lDate.getMonth();
+                var lYear = lDate.getFullYear();
+                var lDateFormat = this.pad(lDay) + "/" + this.pad(lMonth) + "/" + lYear;
+                lViewDate.innerHTML = lDateFormat;
+                lViewTime.innerHTML = lDate.toLocaleTimeString();
+            },
+            //===============================================
+            // string
+            //===============================================
+            function pad(s) { 
+                return (s < 10) ? '0' + s : s; 
             }
             //===============================================
         };
