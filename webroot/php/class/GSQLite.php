@@ -6,6 +6,10 @@ class GSQLite {
     private $m_headers = array();
     //===============================================
     private function __construct() {
+        // drop
+        $this->queryWrite(sprintf("
+        drop table if exists user_data0
+        "));
         // config_data
         $this->queryWrite(sprintf("
         create table if not exists config_data (
@@ -17,6 +21,13 @@ class GSQLite {
         create table if not exists view_data (
         view_key text,
         view_value integer
+        )"));
+        // user_data
+        $this->queryWrite(sprintf("
+        create table if not exists user_data (
+        user_name text,
+        user_pass text,
+        user_group text
         )"));
         // tables
         $this->queryWrite(sprintf("

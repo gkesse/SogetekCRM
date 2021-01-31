@@ -155,12 +155,18 @@ span {
 /* ============================================== */
 /* button */
 .button_id {
-    padding: 0px 10px;
-    background-color: <?php echo $config['app_light_color']; ?>;
-    border-radius: 5px;
-    line-height: 30px;
     display: inline-block;
-    vertical-align: middle;
+    display: inline-block;
+    line-height: 30px;
+    background-color: <?php echo $config['app_light_color']; ?>;
+    padding: 0px 10px;
+    border-radius: 5px;
+}
+.button_id:not(:last-child) {
+    margin-right: 5px;
+}
+.button_id .icon {
+    margin-right: 5px;
 }
 /* ============================================== */
 /* debug */
@@ -291,6 +297,7 @@ span {
 }
 .lineedit_id .field input {
     width: 100%;
+    height: 100%;
     padding: 0px 10px;
 }
 .lineedit_id .goto {
@@ -341,9 +348,50 @@ span {
     text-align: center;
     padding-top: 10px;
     font-size: 100px;
+    margin-bottom: 20px;
 }
-.login_id .body .connect {
+.login_id .body .error {
+    color: #ffaa55;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.login_id .body .edit {
+    position: relative;
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    border-radius: 5px;
+    min-height: 30px;
+    margin-bottom: 20px;
+}
+.login_id .body .edit .label {
+    position: absolute;
+    background-color: <?php echo $config['app_light_color']; ?>;
+    min-width: 30px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+.login_id .body .edit .label .icon {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+.login_id .body .edit .field {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 30px;
+    right: 0px;
+}
+.login_id .body .edit .field input {
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
+}
+.login_id .body .buttons {
     text-align: right;
+}
+.login_id .logout {
+    text-align: center;
 }
 /* ============================================== */
 /* main */
@@ -433,7 +481,7 @@ span {
     text-align: center;
 }
 .timesheet_id .content .item .profil {
-    padding: 10px 10px;
+    padding: 10px 10px 20px 10px;
     text-align: center;
 }
 .timesheet_id .content .item .profil .img {
@@ -447,27 +495,6 @@ span {
 .timesheet_id .content .item .profil .img .icon {
     display: inline-block;
     font-size: 120px;
-}
-.timesheet_id .content .item .date {
-    padding: 10px;
-    text-align: center;
-    font-size: 0px;
-}
-.timesheet_id .content .item .date .date2 {
-    margin-bottom: 10px;
-}
-.timesheet_id .content .item .date .tick {
-    background-color: <?php echo $config['app_light_color']; ?>;
-    border: 1px solid <?php echo $config['app_light_color']; ?>;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 2px 10px;
-    font-size: 20px;
-}
-.timesheet_id .content .item .date .tick.clock {
-    background-color: transparent;
-    border: 1px solid <?php echo $config['app_light_color']; ?>;
-    margin-right: 5px;
 }
 .timesheet_id .content .item .row {
     border: 1px solid #305050;
@@ -501,6 +528,30 @@ span {
     height: 100%;
     display: inline-block;
     vertical-align: middle;
+}
+.timesheet_id .table_id {
+    padding: 0px;
+}
+.timesheet_id .table_id .time {
+    color: #aaaaaa;
+}
+.timesheet_id .table_id .time input {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+}
+.timesheet_id .table_id .days {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+.timesheet_id .table_id .days input {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+}
+.timesheet_id .table_id .total {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+.timesheet_id .table_id .total input {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
 }
 /* ============================================== */
 /* titlebar */
@@ -631,6 +682,8 @@ span {
 .window_id {
     border: 1px solid #aaaaaa;
     border-radius: 5px;
+    overflow: hidden;
+    overflow-x: auto;
 }
 /* ============================================== */
 /* mobile */ 

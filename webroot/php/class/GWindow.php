@@ -11,8 +11,16 @@ class GWindow extends GWidget {
     // method
     //===============================================
     public function load() {
+        $lApp = GManager::Instance()->getData()->app;
+        $lLogin = "Connexion";
+        $lLoginUrl = "home/login";
+        if($lApp->login_on == "on") {
+            $lLogin = "Déconnexion";
+            $lLoginUrl = "home/logout";
+        }
+        //
         $this->m_widgetMap->addStack("home", "home", "Accueil");
-        $this->m_widgetMap->addStack("home/login", "login", "Connexion");
+        $this->m_widgetMap->addStack($lLoginUrl, "login", $lLogin);
         //
         $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");
         $this->m_widgetMap->addStack("home/sqlite/show", "sqliteshow", "Affichage de la table");

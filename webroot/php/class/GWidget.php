@@ -26,7 +26,7 @@ class GWidget {
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
-        if($key == "login") {return new GLogin();}
+        if($key == "login") {return new GLoginUi();}
         //
         if($key == "sqlite") {return new GSQLiteUi();}
         if($key == "sqliteshow") {return new GSQLiteShow();}
