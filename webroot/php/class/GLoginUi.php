@@ -48,7 +48,7 @@ class GLoginUi extends GWidget {
             echo sprintf("<div class='logout'>\n");
             echo sprintf("<a class='button_id' href='%s'><i class='icon fa fa-times'></i> Annuler</a>\n", $lApp->last_url);
             echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='logout'>
-            <i class='icon fa fa-sign-in'></i> Se Déconnecter</button>\n");
+            <i class='icon fa fa-sign-out'></i> Se Déconnecter</button>\n");
             echo sprintf("</div>\n");
         }
         //

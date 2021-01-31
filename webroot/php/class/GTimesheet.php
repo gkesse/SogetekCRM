@@ -78,11 +78,11 @@ class GTimesheet extends GWidget {
         echo sprintf("</div>\n");
         // button
         echo sprintf("<div class='item buttons'>\n");
-        echo sprintf("<a class='button' href='/home'>
+        echo sprintf("<a class='button_id' href='/home'>
         <i class='icon fa fa-times'></i> Annuler</a>\n");
-        echo sprintf("<button class='button' type='submit' id='req' name='req' value='save'>
+        echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='save'>
         <i class='icon fa fa-save'></i> Sauvegarder</button>\n");
-        echo sprintf("<button class='button' type='submit' id='req' name='req' value='valid'>
+        echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='valid'>
         <i class='icon fa fa-check'></i> Valider</button>\n");
         echo sprintf("</div>\n");
         //
