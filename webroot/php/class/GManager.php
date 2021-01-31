@@ -25,6 +25,9 @@ class GManager {
         $this->mgr->app->filesystem = &$_SESSION["filesystem"];
         $this->mgr->app->view_offset = 10;
         $this->mgr->app->table_name = &$_SESSION["table_name"];
+        $this->mgr->app->login_on = &$_SESSION["login_on"];
+        $this->mgr->app->root_name = "root";
+        $this->mgr->app->root_pass = "super";
     }
     //===============================================
     public static function Instance() {
@@ -57,7 +60,8 @@ class GManager {
     public function lastUrl() {
         $lApp = $this->mgr->app;
         $lNoLastUrl = array(
-        "home/login"
+        "home/login",
+        "home/logout"
         );
         if(!in_array($lApp->page_id, $lNoLastUrl)) {
             $lApp->last_url = "/".$lApp->page_id;
@@ -160,6 +164,22 @@ class GManager {
         return $lWidth;
     }    
     //===============================================
+    // login
+    //===============================================
+    public function loginOn() {
+        $lApp = $this->mgr->app;
+        if($lApp->login_on != "on") {
+            $this->redirect("/home/login");
+        }
+    }    
+    //===============================================
+    // password
+    //===============================================
+    public function getPassword($username, $userpass) {
+        $lPassword = md5($username . "|" . $userpass);
+        return $lPassword;
+    }
+    //===============================================
 }
 //===============================================
 // struct
@@ -196,6 +216,11 @@ class sGApp {
     public $view_offset;
     // table
     public $table_name;
+    // login
+    public $login_on;
+    // root
+    public $root_name;
+    public $root_pass;
 }
 //===============================================
 ?>
