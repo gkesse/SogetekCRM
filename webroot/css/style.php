@@ -576,7 +576,7 @@ span {
 }
 .titlebar_id .title {
     position: absolute;
-    left: 95px;
+    left: 110px;
     right: 30px;
     top: 0px;
     bottom: 0px;
@@ -653,7 +653,7 @@ span {
     position: absolute;
     top: 0px;
     bottom: 0px;
-    left: 155px;
+    left: 110px;
     right: 90px;
     text-align: center;
 }
