@@ -92,7 +92,7 @@ class GTimesheetUi extends GWidget {
         echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='save'>
         <i class='icon fa fa-save'></i> Sauvegarder</button>\n");
         echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='valid'>
-        <i class='icon fa fa-check'></i> Valider</button>\n");
+        <i class='icon fa fa-calendar'></i> Valider</button>\n");
         echo sprintf("</div>\n");
         //
         echo sprintf("</div>\n");

@@ -46,7 +46,7 @@ class GUserUi extends GWidget {
         echo sprintf("<div class='buttons'>\n");
         echo sprintf("<a class='button_id' href='/home'><i class='icon fa fa-times'></i> Annuler</a>\n");
         echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='create'>
-        <i class='icon fa fa-plus'></i> Créer</button>\n");
+        <i class='icon fa fa-user'></i> Créer</button>\n");
         //
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");
@@ -76,9 +76,18 @@ class GUserUi extends GWidget {
                     $this->datas["msg"] = "Les mots de passe sont différents";
                 }
                 else {
-                    $this->datas["code"] = "msg";
-                    $this->datas["class"] = "success";
-                    $this->datas["msg"] = "L'utilisateur a été ajouté avec succès";
+                    $lCount = GUser::Instance()->countUser($lUsername);
+                    if($lCount > 0) {
+                        $this->datas["code"] = "msg";
+                        $this->datas["class"] = "error";
+                        $this->datas["msg"] = "Ce nom d'utilisateur existe déjà";
+                    }
+                    else {
+                        //GUser::Instance()->createUser($lUsername, $lPassword);
+                        $this->datas["code"] = "msg";
+                        $this->datas["class"] = "success";
+                        $this->datas["msg"] = "L'utilisateur a été ajouté avec succès";
+                    }
                 }
                 
             }
