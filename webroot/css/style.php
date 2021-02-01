@@ -161,6 +161,7 @@ span {
     background-color: <?php echo $config['app_light_color']; ?>;
     padding: 0px 10px;
     border-radius: 5px;
+    margin-bottom: 5px;
 }
 .button_id:not(:last-child) {
     margin-right: 5px;
