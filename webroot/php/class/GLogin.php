@@ -40,6 +40,15 @@ class GLogin {
         ", $lApp->root_name, $lPassword));
     }    
     //===============================================
+    public function getGroup($username) {
+        $lApp = GManager::Instance()->getData()->app;
+        $lGroup = GSQLite::Instance()->queryValue(sprintf("
+        select user_group from user_data
+        where user_name = '%s'
+        ", $username));
+        return $lGroup;
+    }    
+    //===============================================
     public function login() {
         $lApp = GManager::Instance()->getData()->app;
         $lUsername = $_POST["username"];
@@ -53,6 +62,8 @@ class GLogin {
         $lCount = intval($lCount);
         if($lCount > 0) {
             $lApp->login_on = "on";
+            $lApp->login_group = $this->getGroup($lUsername);
+            $lApp->user_name = $lUsername;
             GManager::Instance()->redirect($lApp->last_url);
         }
         else {

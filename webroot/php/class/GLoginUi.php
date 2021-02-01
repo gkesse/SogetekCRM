@@ -2,10 +2,10 @@
 //===============================================
 class GLoginUi extends GWidget {
     //===============================================
-    private $m_error = false;
+    private $datas = array();
     //===============================================
     public function __construct() {
-        
+        $this->datas["error"] = false;
     }
     //===============================================
     // method
@@ -18,9 +18,9 @@ class GLoginUi extends GWidget {
         //
         if($lApp->login_on != "on") {
             echo sprintf("<div class='body'>\n");
-            echo sprintf("<div class='profil'><i class='fa fa-user'></i></div>\n");
+            echo sprintf("<div class='profile'><i class='fa fa-user'></i></div>\n");
             //
-            if($this->m_error == true) {
+            if($this->datas["error"] == true) {
                 echo sprintf("<div class='error'>\n");
                 echo sprintf("Les identifiants sont incorrects\n");
                 echo sprintf("</div>\n");
@@ -40,8 +40,8 @@ class GLoginUi extends GWidget {
             echo sprintf("<a class='button_id' href='%s'><i class='icon fa fa-times'></i> Annuler</a>\n", $lApp->last_url);
             echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='login'>
             <i class='icon fa fa-sign-in'></i> Se Connecter</button>\n");
-            //
             echo sprintf("</div>\n");
+            //
             echo sprintf("</div>\n");
         }
         else {
@@ -62,7 +62,7 @@ class GLoginUi extends GWidget {
             $lReq = $_POST["req"];
             if($lReq == "login") {
                 GLogin::Instance()->login();
-                if($lApp->login_on == "off") {$this->m_error = true;}
+                if($lApp->login_on == "off") {$this->datas["error"] = true;}
             }
             else if($lReq == "logout") {
                 $lApp->login_on = "off";
