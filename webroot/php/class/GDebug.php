@@ -10,6 +10,7 @@ class GDebug extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
+        GSQLite::Instance()->test();
         $this->request();
         echo sprintf("<div class='debug_id'>\n");
         echo sprintf("<div class='header'>\n");

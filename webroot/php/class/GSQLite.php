@@ -29,11 +29,15 @@ class GSQLite {
         user_pass text,
         user_group text
         )"));
-        // tables
+        // profile_data
         $this->queryWrite(sprintf("
-        select * from view_data
-        order by view_key
-        "), "40;20", 20);
+        create table if not exists profile_data (
+        user_name text,
+        full_name text,
+        manager_name text,
+        client_name text,
+        client_address text
+        )"));
     }
     //===============================================
     public static function Instance() {
@@ -64,6 +68,14 @@ class GSQLite {
         }
 
         return $lPdo;
+    }
+    //===============================================
+    public function test() {
+            // tables
+        $this->queryShow(sprintf("
+        select * from view_data
+        order by view_key
+        "), "40;20", 20);
     }
     //===============================================
     public function queryShow($sql, $widthMap, $defaultWidth) {
