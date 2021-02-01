@@ -83,7 +83,7 @@ class GUserUi extends GWidget {
                         $this->datas["msg"] = "Ce nom d'utilisateur existe déjà";
                     }
                     else {
-                        //GUser::Instance()->createUser($lUsername, $lPassword);
+                        GUser::Instance()->createUser($lUsername, $lPassword);
                         $this->datas["code"] = "msg";
                         $this->datas["class"] = "success";
                         $this->datas["msg"] = "L'utilisateur a été ajouté avec succès";

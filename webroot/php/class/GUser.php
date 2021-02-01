@@ -18,7 +18,7 @@ class GUser {
     // method
     //===============================================
     public function createUser($username, $password) {
-        $lCount = $this->countUser();
+        $lCount = $this->countUser($username);
         if($lCount == 0) {$this->insertUser($username, $password);}
     }    
     //===============================================
