@@ -27,13 +27,16 @@ class GWidget {
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
         if($key == "login") {return new GLoginUi();}
+        if($key == "user") {return new GUserUi();}
+        if($key == "profile") {return new GProfileUi();}
         //
         if($key == "sqlite") {return new GSQLiteUi();}
         if($key == "sqliteshow") {return new GSQLiteShow();}
         //
-        if($key == "timesheet") {return new GTimesheet();}
+        if($key == "timesheet") {return new GTimesheetUi();}
         if($key == "filesystem") {return new GFilesystem();}
         if($key == "debug") {return new GDebug();}
+        if($key == "message") {return new GMessage();}
         // default
         return new GError();
     }

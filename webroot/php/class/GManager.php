@@ -26,8 +26,11 @@ class GManager {
         $this->mgr->app->view_offset = 10;
         $this->mgr->app->table_name = &$_SESSION["table_name"];
         $this->mgr->app->login_on = &$_SESSION["login_on"];
+        $this->mgr->app->login_group = &$_SESSION["login_group"];
         $this->mgr->app->root_name = "root";
         $this->mgr->app->root_pass = "super";
+        $this->mgr->app->user_name = &$_SESSION["user_name"];
+        $this->mgr->app->message = &$_SESSION["message"];
     }
     //===============================================
     public static function Instance() {
@@ -61,7 +64,7 @@ class GManager {
         $lApp = $this->mgr->app;
         $lNoLastUrl = array(
         "home/login",
-        "home/logout"
+        "home/logout",
         );
         if(!in_array($lApp->page_id, $lNoLastUrl)) {
             $lApp->last_url = "/".$lApp->page_id;
@@ -169,7 +172,18 @@ class GManager {
     public function loginOn() {
         $lApp = $this->mgr->app;
         if($lApp->login_on != "on") {
-            $this->redirect("/home/login");
+            $lApp->message = sprintf("Vous n'êtes pas connectés");
+            $this->redirect("/home/message");
+        }
+    }    
+    //===============================================
+    public function loginRoot() {
+        $lApp = $this->mgr->app;
+        if($lApp->login_on == "on") {
+            if($lApp->login_group != "root") {
+                $lApp->message = sprintf("Vous devez vous connecter en tant qu'utilisateur root");
+                $this->redirect("/home/message");
+            }
         }
     }    
     //===============================================
@@ -218,9 +232,14 @@ class sGApp {
     public $table_name;
     // login
     public $login_on;
+    public $login_group;
     // root
     public $root_name;
     public $root_pass;
+    // user
+    public $user_name;
+    // message
+    public $message;
 }
 //===============================================
 ?>

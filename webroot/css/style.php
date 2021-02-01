@@ -339,7 +339,7 @@ span {
     border-radius: 5px;
     padding: 20px 10px 10px 10px;
 }
-.login_id .body .profil {
+.login_id .body .profile {
     border: 1px solid #ffffff;
     width: 150px;
     height: 150px;
@@ -352,6 +352,11 @@ span {
 }
 .login_id .body .error {
     color: #ffaa55;
+    text-align: center;
+    margin-bottom: 20px;
+}
+.login_id .body .success {
+    color: #aaff55;
     text-align: center;
     margin-bottom: 20px;
 }
@@ -397,6 +402,116 @@ span {
 /* main */
 .main_id {
     padding: 10px;
+}
+/* ============================================== */
+/* message */
+.message_id .edit {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    padding: 20px 10px;
+    color: #ffffff;
+}
+.message_id .error {
+    color: #ffaa33;
+}
+.message_id .success {
+    color: #aaff33;
+}
+/* ============================================== */
+/* profile */
+.profile_id {
+    padding: 10px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.profile_id .content {
+    border: 1px solid #305050;
+}
+.profile_id .content .item {
+    border: 1px solid #305050;
+    padding: 10px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+.profile_id .content .item.username {
+    background-color: #305050;
+    padding: 5px 10px;
+    text-align: center;
+}
+.profile_id .content .item .profile {
+    padding: 10px 10px 20px 10px;
+    text-align: center;
+}
+.profile_id .content .item .profile .img {
+    display: inline-block;
+    background-color: #305050;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    padding-top: 10px;
+}
+.profile_id .content .item .profile .img .icon {
+    display: inline-block;
+    font-size: 120px;
+}
+/* profile */
+.profile_id .content .item .row {
+    border: 1px solid #305050;
+    margin-bottom: 10px;
+    position: relative;
+    min-height: 30px;
+}
+.profile_id .content .item .row .key {
+    background-color: #305050;
+    position: absolute;
+    top: 0px; 
+    bottom: 0px; 
+    left: 0px;
+    min-width: 120px;
+}
+.profile_id .content .item .row .key .label {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 10px;
+}
+.profile_id .content .item .row .field {
+    position: absolute;
+    top: 0px; 
+    bottom: 0px;
+    right: 0px;
+    left: 120px;
+}
+.profile_id .content .item .row .field .input {
+    width: 100%;
+    height: 100%;
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 10px;
+}
+.profile_id .table_id {
+    padding: 0px;
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+}
+.profile_id .table_id .time {
+    color: #aaaaaa;
+}
+.profile_id .table_id .time input {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+}
+.profile_id .table_id .days {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+.profile_id .table_id .days input {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+}
+.profile_id .table_id .total {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+.profile_id .table_id .total input {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
 }
 /* ============================================== */
 /* sqlite */
@@ -480,11 +595,11 @@ span {
     padding: 5px 10px;
     text-align: center;
 }
-.timesheet_id .content .item .profil {
+.timesheet_id .content .item .profile {
     padding: 10px 10px 20px 10px;
     text-align: center;
 }
-.timesheet_id .content .item .profil .img {
+.timesheet_id .content .item .profile .img {
     display: inline-block;
     background-color: #305050;
     width: 150px;
@@ -492,7 +607,7 @@ span {
     border-radius: 50%;
     padding-top: 10px;
 }
-.timesheet_id .content .item .profil .img .icon {
+.timesheet_id .content .item .profile .img .icon {
     display: inline-block;
     font-size: 120px;
 }
@@ -521,16 +636,18 @@ span {
     bottom: 0px;
     right: 0px;
     left: 120px;
-    padding: 0px 10px;
 }
 .timesheet_id .content .item .row .field .input {
     width: 100%;
     height: 100%;
     display: inline-block;
     vertical-align: middle;
+    padding: 0px 10px;
 }
 .timesheet_id .table_id {
     padding: 0px;
+    font-family: "Archivo Narrow";
+    font-size: 18px;
 }
 .timesheet_id .table_id .time {
     color: #aaaaaa;
