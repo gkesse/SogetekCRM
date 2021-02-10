@@ -138,6 +138,7 @@ class GManager {
     public function redirect($url) {
         $lLocation = sprintf("Location: %s", $url);
         header($lLocation);
+        exit;
     }
     //===============================================
     public function redirectPost() {
