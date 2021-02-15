@@ -33,7 +33,7 @@ class GManager {
         $this->mgr->app->user_name = &$_SESSION["user_name"];
         $this->mgr->app->user_fullname = &$_SESSION["user_fullname"];
         $this->mgr->app->user_manager = &$_SESSION["user_manager"];
-        $this->mgr->app->client = &$_SESSION["client"];
+        $this->mgr->app->client_name = &$_SESSION["client_name"];
         $this->mgr->app->client_address = &$_SESSION["client_address"];
         $this->mgr->app->days = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
         $this->mgr->app->months = array("inconnu", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
@@ -69,11 +69,12 @@ class GManager {
     // session
     //===============================================
     public function initSession() {
+        $lApp = $this->mgr->app;
         $lDataMap = array(
         "user_name",
         "user_fullname",
         "user_manager",
-        "client",
+        "client_name",
         "client_address",
         );
         for($i = 0; $i < count($lDataMap); $i++) {
@@ -89,7 +90,7 @@ class GManager {
         "user_name",
         "user_fullname",
         "user_manager",
-        "client",
+        "client_name",
         "client_address",
         );
         for($i = 0; $i < count($lDataMap); $i++) {
@@ -294,7 +295,7 @@ class sGApp {
     // message
     public $message;
     // client
-    public $client;
+    public $client_name;
     public $client_address;
     // date
     public $days;

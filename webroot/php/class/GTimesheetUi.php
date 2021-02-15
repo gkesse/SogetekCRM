@@ -2,7 +2,8 @@
 //===============================================
 class GTimesheetUi extends GWidget {
     //===============================================
-    private $datas = array();
+    private $m_msgFlag = "off";
+    private $m_msgText = "Les modifications ont été enregistrées avec succès";
     //===============================================
     public function __construct() {
         
@@ -23,15 +24,15 @@ class GTimesheetUi extends GWidget {
         //
         $lHeaderMap = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Jours", "Total");
         //
-        $this->datas["collaborator"] = "";
-        $this->datas["manager"] = "";
-        $this->datas["client"] = "";
-        $this->datas["address"] = "";
-        //
         $this->request();
         //
         $lMonth = intval(date("m"));
         $lYear = intval(date("Y"));
+        //
+        $lUserFullname = GTimesheet::Instance()->getUserFullname(array("month" => $lMonth,"year" => $lYear,));
+        $lUserManager = GTimesheet::Instance()->getUserManager(array("month" => $lMonth,"year" => $lYear,));
+        $lClientName = GTimesheet::Instance()->getClientName(array("month" => $lMonth,"year" => $lYear,));
+        $lClientAddress = GTimesheet::Instance()->getClientAddress(array("month" => $lMonth,"year" => $lYear,));
         //
         echo sprintf("<form action='' method='post'>\n");
         echo sprintf("<input type='hidden' id='month' name='month' value='%d'/>\n", $lMonth);
@@ -46,24 +47,28 @@ class GTimesheetUi extends GWidget {
         echo sprintf("<div class='profile2'><i class='icon3 fa fa-user'></i></div>\n");
         echo sprintf("</div>\n");
         //
+        if($this->m_msgFlag == "on") {
+            echo sprintf("<div class='success'>%s</div>\n", $this->m_msgText);
+        }
+        //
         echo sprintf("<div class='row'>\n");
-        echo sprintf("<div class='key'><label class='label2' for='collaborator'>Collaborateur :</label></div>\n");
-        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='collaborator' name='collaborator' placeholder='Gérard KESSE' readonly/></div>\n", $lApp->user_fullname);
+        echo sprintf("<div class='key'><label class='label2' for='user_fullname'>Collaborateur :</label></div>\n");
+        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='user_fullname' name='user_fullname' placeholder='Gérard KESSE' required/></div>\n", $lUserFullname);
         echo sprintf("</div>\n");
         //
         echo sprintf("<div class='row'>\n");
-        echo sprintf("<div class='key'><label class='label2' for='manager'>Manager :</label></div>\n");
-        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='manager' name='manager' placeholder='Yvon MOUTSINGA' readonly/></div>\n", $lApp->user_fullname);
+        echo sprintf("<div class='key'><label class='label2' for='user_manager'>Manager :</label></div>\n");
+        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='user_manager' name='user_manager' placeholder='Yvon MOUTSINGA' required/></div>\n", $lUserManager);
         echo sprintf("</div>\n");
         //
         echo sprintf("<div class='row'>\n");
-        echo sprintf("<div class='key'><label class='label2' for='client'>Client :</label></div>\n");
-        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='client' name='client' placeholder='PMC Carrus Groupe' readonly/></div>\n", $lApp->user_fullname);
+        echo sprintf("<div class='key'><label class='label2' for='client_name'>Client :</label></div>\n");
+        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='client_name' name='client_name' placeholder='PMC Carrus Groupe' required/></div>\n", $lClientName);
         echo sprintf("</div>\n");
         //
         echo sprintf("<div class='row'>\n");
-        echo sprintf("<div class='key'><label class='label2' for='address'>Adresse :</label></div>\n");
-        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='address' name='address' placeholder='56 Avenue Raspail, 94100 Saint-Maur-des-Fossés' readonly/></div>\n", $lApp->user_fullname);
+        echo sprintf("<div class='key'><label class='label2' for='client_address'>Adresse :</label></div>\n");
+        echo sprintf("<div class='field2'><input class='input2' type='text' value='%s' id='client_address' name='client_address' placeholder='56 Avenue Raspail, 94100 Saint-Maur-des-Fossés' required/></div>\n", $lClientAddress);
         echo sprintf("</div>\n");
         //
         echo sprintf("</div>\n");
@@ -129,12 +134,14 @@ class GTimesheetUi extends GWidget {
         if(isset($_POST["req"])) {
             $lReq = $_POST["req"];
             if($lReq == "save") {
-                //GManager::Instance()->loginOn();
+                GManager::Instance()->loginOn();
                 GTimesheet::Instance()->saveData($_POST);
+                $this->m_msgFlag = "on";
             }
             else if($lReq == "valid") {
-                //GManager::Instance()->loginOn();
+                GManager::Instance()->loginOn();
                 GTimesheet::Instance()->saveData($_POST);
+                $this->m_msgFlag = "on";
             }
         }
     }

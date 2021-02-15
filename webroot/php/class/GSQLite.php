@@ -8,7 +8,7 @@ class GSQLite {
     private function __construct() {
         // drop
         $this->queryWrite(sprintf("
-        drop table if exists timesheet_data0
+        drop table if exists profile_data0
         "));
         // config_data
         $this->queryWrite(sprintf("
@@ -33,8 +33,8 @@ class GSQLite {
         $this->queryWrite(sprintf("
         create table if not exists profile_data (
         user_name text,
-        full_name text,
-        manager_name text,
+        user_fullname text,
+        user_manager text,
         client_name text,
         client_address text
         )"));
@@ -42,6 +42,10 @@ class GSQLite {
         $this->queryWrite(sprintf("
         create table if not exists timesheet_data (
         user_name text,
+        user_fullname text,
+        user_manager text,
+        client_name text,
+        client_address text,
         month integer,
         year integer,
         row integer,
