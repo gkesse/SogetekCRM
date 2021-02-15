@@ -39,7 +39,7 @@ class GSQLiteShow extends GWidget {
         echo sprintf("<form id='sqlite_show_page_number_form' class='item7 margin2' action='' method='post'>\n");
         echo sprintf("<div class='item'>Page : </div>\n");
         echo sprintf("<input type='hidden' id='req' name='req' value='page_number'/>\n");
-        echo sprintf("<input style='min-width: 40px;' class='item' type='number' id='page' name='page' value='%d' min='1' max='%d' maxlength='6' size='6' 
+        echo sprintf("<input style='min-width: 20px;' class='item' type='number' id='page' name='page' value='%d' min='1' max='%d' maxlength='6' size='6' 
         onchange='onItemClick(this, \"sqlite_show_page_number\")'/>\n", $lPage, $lPageMax);
         echo sprintf("<div class='item'> / %d</div>\n", $lPageMax);
         echo sprintf("</form>\n");
@@ -47,7 +47,7 @@ class GSQLiteShow extends GWidget {
         echo sprintf("<form id='sqlite_show_col_max_form' class='item7' action='' method='post'>\n");
         echo sprintf("<div class='item'>Max : </div>\n");
         echo sprintf("<input type='hidden' id='req' name='req' value='col_max'/>\n");
-        echo sprintf("<input style='min-width: 40px;' class='item' type='number' id='page' name='page' value='%d' min='10' max='50' maxlength='6' size='6' step='10'
+        echo sprintf("<input style='min-width: 20px;' class='item' type='number' id='page' name='page' value='%d' min='10' max='50' maxlength='6' size='6' step='10'
         onchange='onItemClick(this, \"sqlite_show_col_max\")'/>\n", $lMax);
         echo sprintf("</form>\n");
         //
