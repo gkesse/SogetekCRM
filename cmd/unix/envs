@@ -6,8 +6,7 @@ export "GDATA_PATH=${GPROJECT_PATH}/webroot/data"
 #================================================
 export "GSQLITE_DB_PATH=${GDATA_PATH}/sqlite/config.dat"
 export "GSQLITE_TABLE=view_data"
-export "GSQLITE_SELECT_WHERE=where view_key like '%GProcess%'"
-export "GSQLITE_DELETE_WHERE=where view_key like '%GProcess%'"
+export "GSQLITE_SELECT_WHERE=where view_key like '%c/version.js%'"
 #================================================
 export "GGIT_URL=https://github.com/gkesse/SogetekCRM.git"
 export "GGIT_NAME=SogetekCRM"

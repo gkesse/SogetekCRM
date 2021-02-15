@@ -27,6 +27,6 @@ sqlite_show_table:
 sqlite_select_where:
 	sqlite3 $(GSQLITE_DB_PATH) "select * from $(GSQLITE_TABLE) $(GSQLITE_SELECT_WHERE)"
 sqlite_delete_where:
-	sqlite3 $(GSQLITE_DB_PATH) "delete from $(GSQLITE_TABLE) $(GSQLITE_DELETE_WHERE)"
+	sqlite3 $(GSQLITE_DB_PATH) "delete from $(GSQLITE_TABLE) $(GSQLITE_SELECT_WHERE)"
 	sqlite3 $(GSQLITE_DB_PATH) "select * from $(GSQLITE_TABLE)"
 #================================================
