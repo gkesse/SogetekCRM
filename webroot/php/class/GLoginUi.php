@@ -66,7 +66,7 @@ class GLoginUi extends GWidget {
             }
             else if($lReq == "logout") {
                 $lApp->login_on = "off";
-                //GManager::Instance()->clearSession();
+                GManager::Instance()->clearSession();
                 GManager::Instance()->redirect($lApp->last_url);
             }
         }

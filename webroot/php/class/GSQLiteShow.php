@@ -33,6 +33,8 @@ class GSQLiteShow extends GWidget {
         $lPageMax = ceil($lTotal/$lMax);
         $lPage = $this->m_pageNumber;
         //
+        if($lPage > $lPageMax) {$lPage = 1;}
+        //
         echo sprintf("<div class='header left overflow'>\n");
         //
         echo sprintf("<div class='item7 margin2'>\n");
