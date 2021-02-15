@@ -28,9 +28,15 @@ class GManager {
         $this->mgr->app->login_on = &$_SESSION["login_on"];
         $this->mgr->app->login_group = &$_SESSION["login_group"];
         $this->mgr->app->root_name = "root";
-        $this->mgr->app->root_pass = "super";
-        $this->mgr->app->user_name = &$_SESSION["user_name"];
+        $this->mgr->app->root_pass = "6536e597b35fd94253fcf5ec2c0d5988";
         $this->mgr->app->message = &$_SESSION["message"];
+        $this->mgr->app->user_name = &$_SESSION["user_name"];
+        $this->mgr->app->user_fullname = &$_SESSION["user_fullname"];
+        $this->mgr->app->user_manager = &$_SESSION["user_manager"];
+        $this->mgr->app->client = &$_SESSION["client"];
+        $this->mgr->app->client_address = &$_SESSION["client_address"];
+        $this->mgr->app->days = array("Lundi", "Mardi", "Mercredi", "Jeudi", "Vendredi", "Samedi", "Dimanche");
+        $this->mgr->app->months = array("inconnu", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
     }
     //===============================================
     public static function Instance() {
@@ -55,10 +61,44 @@ class GManager {
         $this->clearDebug();
         $this->getPageId();
         $this->lastUrl();
+        $this->fullUrl();
         $this->initFilesystem();
+        $this->initSession();
     }
     //===============================================
-    // last_url
+    // session
+    //===============================================
+    public function initSession() {
+        $lDataMap = array(
+        "user_name",
+        "user_fullname",
+        "user_manager",
+        "client",
+        "client_address",
+        );
+        for($i = 0; $i < count($lDataMap); $i++) {
+            $lData = $lDataMap[$i];
+            if(!isset($_SESSION[$lData])) {
+                $_SESSION[$lData] = "inconnu";
+            }
+        }
+    }
+    //===============================================
+    public function clearSession() {
+        $lDataMap = array(
+        "user_name",
+        "user_fullname",
+        "user_manager",
+        "client",
+        "client_address",
+        );
+        for($i = 0; $i < count($lDataMap); $i++) {
+            $lData = $lDataMap[$i];
+            unset($_SESSION[$lData]);
+        }
+    }
+    //===============================================
+    // url
     //===============================================
     public function lastUrl() {
         $lApp = $this->mgr->app;
@@ -69,6 +109,15 @@ class GManager {
         if(!in_array($lApp->page_id, $lNoLastUrl)) {
             $lApp->last_url = "/".$lApp->page_id;
         }
+    }
+    //===============================================
+    public function fullUrl() {
+        $lApp = $this->mgr->app;
+        $lApp->full_url = "";
+        $lApp->full_url .= isset($_SERVER['HTTPS']) ? "https" : "http";
+        $lApp->full_url .= "://";
+        $lApp->full_url .= $_SERVER["HTTP_HOST"];
+        $lApp->full_url .= $_SERVER["REQUEST_URI"];
     }
     //===============================================
     // page
@@ -217,8 +266,9 @@ class sGApp {
     public $google_fonts;
     // debug
     public $debug;
-    // last_url
+    // url
     public $last_url;
+    public $full_url;
     // sqlite
     public $sqlite_db_path;
     // logo
@@ -239,8 +289,16 @@ class sGApp {
     public $root_pass;
     // user
     public $user_name;
+    public $user_fullname;
+    public $user_manager;
     // message
     public $message;
+    // client
+    public $client;
+    public $client_address;
+    // date
+    public $days;
+    public $months;
 }
 //===============================================
 ?>

@@ -12,17 +12,11 @@ class GWidget {
         if($key == "header") {return new GHeader();}
         if($key == "body") {return new GBody();}
         if($key == "footer") {return new GFooter();}
-        if($key == "listbox") {return new GListBox();}
         if($key == "addresskey") {return new GAddressKey();}
-        if($key == "spacev") {return new GSpaceV();}
-        if($key == "spaceh") {return new GSpaceH();}
         if($key == "stackwidget") {return new GStackWidget();}
         if($key == "titlebar") {return new GTitleBar();}
-        if($key == "lineedit") {return new GLineEdit();}
-        if($key == "button") {return new GButton();}
-        if($key == "icon") {return new GIcon();}
-        if($key == "form") {return new GForm();}
         if($key == "view") {return new GViewUi();}
+        if($key == "network") {return new GNetwork();}
         // page
         if($key == "window") {return new GWindow();}
         if($key == "home") {return new GHome();}
@@ -42,6 +36,11 @@ class GWidget {
     }
     //===============================================
     // method
+    //===============================================
+    public function getSummary() {
+        $lSummary = "Système d'administration produit par Sogetek";
+        return $lSummary;
+    }
     //===============================================
     public function run() {}
     public function load() {}

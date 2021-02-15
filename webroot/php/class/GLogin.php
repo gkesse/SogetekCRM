@@ -33,11 +33,10 @@ class GLogin {
     //===============================================
     public function insertRoot() {
         $lApp = GManager::Instance()->getData()->app;
-        $lPassword = GManager::Instance()->getPassword($lApp->root_name, $lApp->root_pass);
         GSQLite::Instance()->queryWrite(sprintf("
         insert into user_data (user_name, user_pass, user_group)
         values ('%s', '%s', 'root')
-        ", $lApp->root_name, $lPassword));
+        ", $lApp->root_name, $lApp->root_pass));
     }    
     //===============================================
     public function getGroup($username) {

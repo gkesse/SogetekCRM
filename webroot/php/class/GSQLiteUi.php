@@ -21,7 +21,7 @@ class GSQLiteUi extends GWidget {
             echo sprintf("<form action='/home/sqlite/show' method='post'>
             <input type='hidden' id='req' name='req' value='show_table'/>
             <input type='hidden' id='table' name='table' value='%s'/>
-            <button class='item' type='submit'>
+            <button class='button2' type='submit'>
             <i class='icon fa fa-database'></i>
             %s</button></form>\n", $lTableLower, $lTableLower);
         }

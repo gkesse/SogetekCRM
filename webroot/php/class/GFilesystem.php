@@ -11,25 +11,26 @@ class GFilesystem extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $this->request();
-        echo sprintf("<div class='filesystem_id'>\n");
+        echo sprintf("<div class=''>\n");
+        // header
         echo sprintf("<div class='header'>\n");
         $lMap = explode("/", $lApp->filesystem);
         $lAddress = "";
         for($i = 0; $i < count($lMap); $i++) {
-            if($i != 0) {echo sprintf("<i class='sep fa fa-chevron-right'></i>\n", $lItem);}
+            if($i != 0) {echo sprintf("<i class='sep2 fa fa-chevron-right'></i>\n", $lItem);}
             $lItem = $lMap[$i];
             if($i != 0) {$lAddress .= "/";}
             $lAddress .= $lItem;
             if($i == 0) {$lItem = "<i class='fa fa-home'></i>";}
-            echo sprintf("<form class='form' action='' method='post'>
+            echo sprintf("<form class='box5' action='' method='post'>
             <input type='hidden' id='req' name='req' value='open_key'/>
             <input type='hidden' id='new_path' name='new_path' value='%s'/>
-            <button class='key' type='submit'>
+            <button class='' type='submit'>
             %s</button></form>\n", $lAddress, $lItem);
         }
         echo sprintf("</div>\n");
-        //
-        echo sprintf("<div class='body'>\n");
+        // body
+        echo sprintf("<div class=''>\n");
         foreach (new DirectoryIterator($lApp->filesystem) as $lFileInfo) {
             if($lFileInfo->isDot()) {continue;}
             $lFilename = $lFileInfo->getFilename();
@@ -41,7 +42,7 @@ class GFilesystem extends GWidget {
             <input type='hidden' id='req' name='req' value='%s'/>
             <input type='hidden' id='new_path' name='new_path' value='%s'/>
             <input type='hidden' id='current_path' name='current_path' value='%s'/>
-            <button class='file' type='submit'><i class='icon fa fa-%s'></i>
+            <button class='button2' type='submit'><i class='icon fa fa-%s'></i>
             %s</button></form>\n", $lReq, $lPath, $lApp->filesystem, $lIcon, $lFilename);
         }        
         echo sprintf("</div>\n");

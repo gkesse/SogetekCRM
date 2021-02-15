@@ -21,7 +21,7 @@ class GWindow extends GWidget {
         //
         $this->m_widgetMap->addStack("home", "home", "Accueil");
         $this->m_widgetMap->addStack($lLoginUrl, "login", $lLogin);
-        $this->m_widgetMap->addStack("home/user", "user", "Utilisateur");
+        $this->m_widgetMap->addStack("home/users", "user", "Utilisateurs");
         $this->m_widgetMap->addStack("home/profile", "profile", "Profil");
         //
         $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");
@@ -42,10 +42,8 @@ class GWindow extends GWidget {
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
         $lPage = $this->m_widgetMap->getPage($lApp->page_id);
-        echo sprintf("<div class='window_id'>\n");
-        echo sprintf("<div class='content_id'>\n");
+        echo sprintf("<div class='window'>\n");
         GWidget::Create($lPage)->run();
-        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================

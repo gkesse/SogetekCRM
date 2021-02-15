@@ -17,12 +17,12 @@ class GTitleBar extends GWidget {
             $lLoginUrl = "/home/logout";
         }
         //
-        echo sprintf("<div class='titlebar_id'>\n");
-        echo sprintf("<a href='/'><div class='logo'><img src='%s'/></div>\n", $lApp->logo_flat);
-        echo sprintf("<div class='app_name'>%s</div></a>\n", $lApp->app_name);
-        echo sprintf("<div class='title'>%s</div>\n", $lApp->title);
-        echo sprintf("<a href='$lLoginUrl'><div class='login' title='$lLogin'>
-        <i class='fa fa-user'></i></div></a>\n");
+        echo sprintf("<div class='box margin'>\n");
+        echo sprintf("<a href='/'><img class='float logo' src='%s'/>\n", $lApp->logo_flat);
+        echo sprintf("<div class='float app_name'>%s</div></a>\n", $lApp->app_name);
+        echo sprintf("<div class='float title'>%s</div>\n", $lApp->title);
+        echo sprintf("<a href='%s'><div class='float login' title='%s'>
+        <i class='fa fa-user'></i></div></a>\n", $lLoginUrl, $lLogin);
         echo sprintf("</div>\n");
     }
     //===============================================
