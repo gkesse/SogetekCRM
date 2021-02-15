@@ -547,6 +547,12 @@ table th {
     line-height: 40px;
 }
 /* ============================================== */
+/* overflow */
+.overflow {
+    overflow: hidden;
+    overflow-x: auto;
+}
+/* ============================================== */
 /* profile */
 .profile {
     border: 1px solid #ffffff;

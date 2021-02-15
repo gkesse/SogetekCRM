@@ -29,7 +29,7 @@ class GSQLiteShow extends GWidget {
         $lPageMax = ceil($lTotal/$lMax);
         $lPage = $this->m_pageNumber;
         //
-        echo sprintf("<div class='header left'>\n");
+        echo sprintf("<div class='header left overflow'>\n");
         //
         echo sprintf("<div class='item7 margin2'>\n");
         echo sprintf("<div class='item'>Total : </div>\n");
@@ -39,7 +39,7 @@ class GSQLiteShow extends GWidget {
         echo sprintf("<form id='sqlite_show_page_number_form' class='item7 margin2' action='' method='post'>\n");
         echo sprintf("<div class='item'>Page : </div>\n");
         echo sprintf("<input type='hidden' id='req' name='req' value='page_number'/>\n");
-        echo sprintf("<input class='item' type='number' id='page' name='page' value='%d' min='1' max='%d' size='3' 
+        echo sprintf("<input class='item' type='number' id='page' name='page' value='%d' min='1' max='%d' size='6' 
         onchange='onItemClick(this, \"sqlite_show_page_number\")'/>\n", $lPage, $lPageMax);
         echo sprintf("<div class='item'> / %d</div>\n", $lPageMax);
         echo sprintf("</form>\n");
@@ -47,12 +47,13 @@ class GSQLiteShow extends GWidget {
         echo sprintf("<form id='sqlite_show_col_max_form' class='item7' action='' method='post'>\n");
         echo sprintf("<div class='item'>Max : </div>\n");
         echo sprintf("<input type='hidden' id='req' name='req' value='col_max'/>\n");
-        echo sprintf("<input class='item' type='number' id='page' name='page' value='%d' min='10' max='50' size='4' step='10'
+        echo sprintf("<input class='item' type='number' id='page' name='page' value='%d' min='10' max='50' size='6' step='10'
         onchange='onItemClick(this, \"sqlite_show_col_max\")'/>\n", $lMax);
         echo sprintf("</form>\n");
         //
         echo sprintf("</div>\n");
         //
+        echo sprintf("<div class='overflow'>\n");
         echo sprintf("<div class='box5'>\n");
         echo sprintf("<div class='title3'>%s</div>\n", $lApp->table_name);
         echo sprintf("<table>\n");
@@ -60,7 +61,7 @@ class GSQLiteShow extends GWidget {
         echo sprintf("<tr>\n");
         for($i = 0; $i < count($lHeaders); $i++) {
             $lHeader = $lHeaders[$i];
-            echo sprintf("<th>$lHeader</th>\n");
+            echo sprintf("<th>%s</th>\n", $lHeader);
         }
         echo sprintf("</tr>\n");
         echo sprintf("</thead>\n");
@@ -78,6 +79,7 @@ class GSQLiteShow extends GWidget {
         }
         echo sprintf("</tbody>\n");
         echo sprintf("</table>\n");
+        echo sprintf("</div>\n");
         echo sprintf("</div>\n");
     }
     //===============================================
