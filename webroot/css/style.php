@@ -136,16 +136,44 @@ hr:after {
 span {
     word-break: break-all;
 }
+
+table {
+    border-collapse: collapse;
+}
+
+table thead tr {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    text-align: left;
+}
+
+table th,  table td {
+    padding: 5px 10px;
+    border: 1px solid #aaaaaa;
+}
+
+table th {
+    font-weight: normal;
+}
+
+ table td {
+    color: #aaaaaa;
+}
 /* ============================================== */
 /* custom */ 
 /* ============================================== */
-/* addresskey */
-.addresskey_id {
-    padding: 0px;
+/* app_name */
+.app_name {
+    top: 5px;
+    left: 30px;
+}
+/* ============================================== */
+/* bg */
+.bg {
+    background-color: rgba(255, 255, 255, 0.2);
 }
 /* ============================================== */
 /* body */
-.body_id {
+.body {
     position: relative;
     max-width: 1000px;
     margin: auto;
@@ -153,50 +181,113 @@ span {
     padding-bottom: 0px;
 }
 /* ============================================== */
-/* button */
-.button_id {
+/* body2 */
+.body2 {
+    border: 1px solid #ffffff;
+    max-width: 500px;
+    margin: auto;
+    border-radius: 5px;
+    padding: 20px 10px 10px 10px;
+}
+/* ============================================== */
+/* border */
+.border {
+    border: 1px solid <?php echo $config['app_light_color']; ?>;
+    padding: 10px 10px;
+}
+/* ============================================== */
+/* box */
+.box {
+    position: relative;
+    border-bottom: 5px solid <?php echo $config['app_light_color']; ?>;
+    padding-bottom: 5px;
+    min-height: 40px;
+    overflow: hidden;
+}
+/* ============================================== */
+/* box2 */
+.box2 {
+    position: relative;
+    min-height: 40px;
+    overflow: hidden;
+}
+/* ============================================== */
+/* box3 */
+.box3 {
+    padding: 50px 10px;
+}
+/* ============================================== */
+/* box4 */
+.box4 {
+    padding: 10px;
+    overflow: hidden;
+    overflow-x: auto;
+}
+/* ============================================== */
+/* box5 */
+.box5 {
     display: inline-block;
+}
+/* ============================================== */
+/* button */
+.button {
     display: inline-block;
     line-height: 30px;
     background-color: <?php echo $config['app_light_color']; ?>;
     padding: 0px 10px;
     border-radius: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+    margin: 5px 0px;
 }
-.button_id:not(:last-child) {
-    margin-right: 5px;
-}
-.button_id .icon {
+.button:not(:last-child) {
     margin-right: 5px;
 }
 /* ============================================== */
-/* debug */
-.debug_id {
-
-}
-.debug_id .header {
-    padding: 5px 10px;
-    border-bottom: 1px solid #ffffff;
-    font-size: 0px;
-    text-align: right;
-}
-.debug_id .header .item {
-    display: inline-block;
-    vertical-align: middle;
-    cursor: pointer;
-    text-align: center;
+/* button2 */
+.button2 {
+    display: block;
+    line-height: 30px;
+    padding: 2px 10px;
     border-radius: 5px;
-    margin-left: 5px;
+    margin: 5px 0px;
+    width: 100%;
+    text-align: left;
 }
-.debug_id .header .item form button {
-    font-size: 18px;
-    border: 2px solid <?php echo $config['app_light_color']; ?>;
+.button2:hover {
     background-color: <?php echo $config['app_light_color']; ?>;
-    width: 25px;
-    border-radius: 5px;
 }
-.debug_id .body {
+/* ============================================== */
+/* center */
+.center {
+    text-align: center;
+}
+/* ============================================== */
+/* content */
+.content {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    padding: 20px 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    color: #ffffff;
+}
+/* ============================================== */
+/* content2 */
+.content2 {
+    border: 1px solid #305050;
+}
+/* ============================================== */
+/* date */
+.date {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    top: 5px;
+    left: 0px;
+    border-radius: 5px;
+    min-width: 90px;
+    padding: 2px 0px;
+    text-align: center;
+}
+/* ============================================== */
+/* debug */
+.debug {
     padding: 10px;
     font-family: "Courier Prime";
     font-size: 16px;
@@ -205,28 +296,47 @@ span {
     white-space: nowrap;
 }
 /* ============================================== */
-/* error */
-.error_id {
-    padding: 50px 10px;
-    text-align: center;
+/* edit */
+.edit {
+    position: relative;
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    border-radius: 5px;
+    min-height: 30px;
+    margin-bottom: 20px;
 }
 /* ============================================== */
-/* filesystem */
-.filesystem_id {
-
+/* error */
+.error {
+    color: #ffaa55;
+    text-align: center;
+    margin-bottom: 20px;
 }
-.filesystem_id .header {
-    padding: 10px 10px;
-    border-bottom: 1px solid #ffffff;
+/* ============================================== */
+/* family */
+.family {
+    font-family: "Archivo Narrow";
 }
-.filesystem_id .header .sep {
-    font-size: <?php echo $config['app_icon_size']; ?>px;
-    margin: 0px 5px;
+/* ============================================== */
+/* field */
+.field {
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    left: 30px;
+    right: 0px;
 }
-.filesystem_id .header .form {
-    display: inline-block;
+/* ============================================== */
+/* field2 */
+.field2 {
+    position: absolute;
+    top: 0px; 
+    bottom: 0px;
+    right: 0px;
+    left: 120px;
 }
-.filesystem_id .body .file {
+/* ============================================== */
+/* file */
+.file {
     display: block;
     padding: 5px 10px;
     cursor: pointer;
@@ -234,21 +344,47 @@ span {
     width: 100%;
     text-align: left;
 }
-.filesystem_id .body .file:hover {
+.file:hover {
     background-color: <?php echo $config['app_light_color']; ?>;
 }
-.filesystem_id .body .file .icon {
-    font-size: <?php echo $config['app_icon_size']; ?>px;
-    margin-right: 5px;
+/* ============================================== */
+/* float */
+.float {
+    position: absolute;
 }
 /* ============================================== */
 /* html */
-.html_id {
+.html {
     position: relative;
 }
 /* ============================================== */
-/* lineedit */
-.icon_id {
+/* header */
+.header {
+    border-bottom: 1px solid #ffffff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+/* ============================================== */
+/* icon */
+.icon {
+    margin-right: 5px;
+}
+/* ============================================== */
+/* icon2 */
+.icon2 {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+/* ============================================== */
+/* icon3 */
+.icon3 {
+    display: inline-block;
+    font-size: 120px;
+}
+/* ============================================== */
+/* icon4 */
+.icon4 {
     display: inline-block;
     vertical-align: middle;
     cursor: pointer;
@@ -260,88 +396,159 @@ span {
     width: 25px;
 }
 /* ============================================== */
-/* lineedit */
-.lineedit_id {
-    position: relative;
-    border: 2px solid <?php echo $config['app_light_color']; ?>;
-    border-radius: 5px;
-    overflow: hidden;
-    min-height: 30px;
-}
-.lineedit_id .label {
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    background-color: <?php echo $config['app_light_color']; ?>;
-    min-width: 100px;
-    left: 0px;
-    top: 0px;
-    bottom: 0px;
-}
-.lineedit_id .label .icon {
-    background-color: transparent;
-    min-width: 30px;
-    min-height: 30px;
-    text-align: center;
-    display: inline-block;
-    vertical-align: middle;
-    padding-top: 2px;
-}
-.lineedit_id .field {
-    background-color: transparent;
-    display: inline-block;
-    vertical-align: middle;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 100px;
-    right: 30px;
-}
-.lineedit_id .field input {
+/* input */
+.input {
     width: 100%;
     height: 100%;
     padding: 0px 10px;
 }
-.lineedit_id .goto {
-    background-color: <?php echo $config['app_light_color']; ?>;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    font-size: 18px;
-    min-width: 30px;
-    min-height: 30px;
-    text-align: center;
+/* ============================================== */
+/* input2 */
+.input2 {
+    display: inline-block;
     vertical-align: middle;
-    padding-top: 2px;
-    cursor: pointer;
+    width: 100%;
+    height: 100%;
+    padding: 0px 10px;
 }
 /* ============================================== */
-/* listbox */
-.listbox_id {
-    text-align: left;
+/* item */
+.item {
+    display: inline-block;
+    vertical-align: middle;
 }
-.listbox_id .item {
-    padding: 5px 10px;
-    cursor: pointer;
+/* ============================================== */
+/* item2 */
+.item2 {
+    border: 1px solid #305050;
+    padding: 10px;
+    overflow: hidden;
+    overflow-x: auto;
 }
-.listbox_id .item:hover {
+/* ============================================== */
+/* item3 */
+.item3 {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+    color: #aaaaaa;
+}
+/* ============================================== */
+/* item4 */
+.item4 {
     background-color: <?php echo $config['app_light_color']; ?>;
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+}
+/* ============================================== */
+/* item5 */
+.item5 {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+/* ============================================== */
+/* item6 */
+.item6 {
+    font-family: "Archivo Narrow";
+    font-size: 18px;
+    color: #ffffff;
+}
+/* ============================================== */
+/* item7 */
+.item7 {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    display: inline-block;
+    vertical-align: middle;
     border-radius: 5px;
+    padding: 5px 10px;
+}
+/* ============================================== */
+/* key */
+.key {
+    background-color: #305050;
+    position: absolute;
+    top: 0px; 
+    bottom: 0px; 
+    left: 0px;
+    min-width: 120px;
+}
+/* ============================================== */
+/* label */
+.label {
+    position: absolute;
+    background-color: <?php echo $config['app_light_color']; ?>;
+    min-width: 30px;
+    left: 0px;
+    top: 0px;
+    bottom: 0px;
+}
+/* ============================================== */
+/* label2 */
+.label2 {
+    display: inline-block;
+    vertical-align: middle;
+    padding: 0px 10px;
+}
+/* ============================================== */
+/* left */
+.left {
+    text-align: left;
 }
 /* ============================================== */
 /* login */
-.login_id {
-    padding: 50px 10px;
+.login {
+    right: 5px;
+    top: 5px;
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    background-color: <?php echo $config['app_light_color']; ?>;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
 }
-.login_id .body {
-    border: 1px solid #ffffff;
-    max-width: 500px;
-    margin: auto;
-    border-radius: 5px;
-    padding: 20px 10px 10px 10px;
+/* ============================================== */
+/* logo */
+.logo {
+    width: auto;
+    height: 20px;
+    top: 5px;
+    left: 5px;
 }
-.login_id .body .profile {
+/* ============================================== */
+/* main */
+.main {
+    padding: 10px;
+}
+/* ============================================== */
+/* margin */
+.margin {
+    margin-bottom: 10px;
+}
+/* ============================================== */
+/* margin2 */
+.margin2 {
+    margin-right: 10px;
+}
+/* ============================================== */
+/* margin3 */
+.margin3 {
+    margin-bottom: 10px;
+}
+/* ============================================== */
+/* network */
+.network {
+    display: inline-block;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    font-size: 18px;
+    border-radius: 50%;
+    background-color: <?php echo $config['app_light_color']; ?>;
+    width: 40px;
+    line-height: 40px;
+}
+/* ============================================== */
+/* profile */
+.profile {
     border: 1px solid #ffffff;
     width: 150px;
     height: 150px;
@@ -352,457 +559,112 @@ span {
     font-size: 100px;
     margin-bottom: 20px;
 }
-.login_id .body .error {
-    color: #ffaa55;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.login_id .body .success {
-    color: #aaff55;
-    text-align: center;
-    margin-bottom: 20px;
-}
-.login_id .body .edit {
-    position: relative;
-    border: 2px solid <?php echo $config['app_light_color']; ?>;
-    border-radius: 5px;
-    min-height: 30px;
-    margin-bottom: 20px;
-}
-.login_id .body .edit .label {
-    position: absolute;
-    background-color: <?php echo $config['app_light_color']; ?>;
-    min-width: 30px;
-    left: 0px;
-    top: 0px;
-    bottom: 0px;
-}
-.login_id .body .edit .label .icon {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-}
-.login_id .body .edit .field {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 30px;
-    right: 0px;
-}
-.login_id .body .edit .field input {
-    width: 100%;
-    height: 100%;
-    padding: 0px 10px;
-}
-.login_id .body .buttons {
-    text-align: right;
-}
-.login_id .logout {
-    text-align: center;
-}
 /* ============================================== */
-/* main */
-.main_id {
-    padding: 10px;
-}
-/* ============================================== */
-/* message */
-.message_id .edit {
-    background-color: <?php echo $config['app_light_color']; ?>;
-    padding: 20px 10px;
-    color: #ffffff;
-}
-.message_id .error {
-    color: #ffaa33;
-}
-.message_id .success {
-    color: #aaff33;
-}
-/* ============================================== */
-/* profile */
-.profile_id {
-    padding: 10px;
-    overflow: hidden;
-    overflow-x: auto;
-}
-.profile_id .content {
-    border: 1px solid #305050;
-}
-.profile_id .content .item {
-    border: 1px solid #305050;
-    padding: 10px;
-    overflow: hidden;
-    overflow-x: auto;
-}
-.profile_id .content .item.username {
-    background-color: #305050;
-    padding: 5px 10px;
-    text-align: center;
-}
-.profile_id .content .item .profile {
-    padding: 10px 10px 20px 10px;
-    text-align: center;
-}
-.profile_id .content .item .profile .img {
+/* profile2 */
+.profile2 {
     display: inline-block;
     background-color: #305050;
     width: 150px;
     height: 150px;
     border-radius: 50%;
     padding-top: 10px;
+    margin-top: 10px;
+    margin-bottom: 20px;
 }
-.profile_id .content .item .profile .img .icon {
-    display: inline-block;
-    font-size: 120px;
+/* ============================================== */
+/* right */
+.right {
+    text-align: right;
 }
-/* profile */
-.profile_id .content .item .row {
+/* ============================================== */
+/* row */
+.row {
+    position: relative;
     border: 1px solid #305050;
     margin-bottom: 10px;
-    position: relative;
     min-height: 30px;
 }
-.profile_id .content .item .row .key {
-    background-color: #305050;
-    position: absolute;
-    top: 0px; 
-    bottom: 0px; 
-    left: 0px;
-    min-width: 120px;
-}
-.profile_id .content .item .row .key .label {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0px 10px;
-}
-.profile_id .content .item .row .field {
-    position: absolute;
-    top: 0px; 
-    bottom: 0px;
-    right: 0px;
-    left: 120px;
-}
-.profile_id .content .item .row .field .input {
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0px 10px;
-}
-.profile_id .table_id {
-    padding: 0px;
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-.profile_id .table_id .time {
-    color: #aaaaaa;
-}
-.profile_id .table_id .time input {
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-.profile_id .table_id .days {
-    background-color: <?php echo $config['app_light_color']; ?>;
-}
-.profile_id .table_id .days input {
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-.profile_id .table_id .total {
-    background-color: <?php echo $config['app_light_color']; ?>;
-}
-.profile_id .table_id .total input {
-    font-family: "Archivo Narrow";
-    font-size: 18px;
+/* ============================================== */
+/* sep */
+.sep {
+    font-size: 16px;
+    padding: 0px 5px;
 }
 /* ============================================== */
-/* sqlite */
-.sqlite_id {
-
+/* sep2 */
+.sep2 {
+    font-size: 16px;
+    margin: 0px 5px;
 }
-.sqlite_id .item {
-    display: block;
-    padding: 5px 10px;
-    cursor: pointer;
-    width: 100%;
-    text-align: left;
+/* ============================================== */
+/* success */
+.success {
+    color: #aaff55;
+    text-align: center;
+    margin-bottom: 20px;
 }
-.sqlite_id .item:hover {
+/* ============================================== */
+/* time */
+.time {
     background-color: <?php echo $config['app_light_color']; ?>;
+    top: 5px;
+    right: 0px;
+    min-width: 80px;
+    text-align: center;
+    padding: 2px 0px;
     border-radius: 5px;
 }
-.sqlite_id .item .icon {
-    padding-right: 5px;
+/* ============================================== */
+/* title */
+.title {
+    left: 110px;
+    right: 35px;
+    right: 110px;
+    top: 5px;
+    text-align: center;
 }
 /* ============================================== */
-/* table */
-.table_id {
-    display: inline-block;
-    padding: 10px;
+/* title2 */
+.title2 {
+    background-color: #305050;
+    padding: 5px 10px;
+    text-align: center;
 }
-.table_id .name {
+/* ============================================== */
+/* title3 */
+.title3 {
     background-color: #305050;
     border: 1px solid #aaaaaa;
     border-bottom-color: transparent;
     padding: 5px 10px;
     text-align: center;
 }
-.table_id table {
-    border-collapse: collapse;
-}
-.table_id table thead tr {
-    background-color: <?php echo $config['app_light_color']; ?>;
-    text-align: left;
-}
-.table_id table th, .table_id  table td {
-    padding: 5px 10px;
-    border: 1px solid #aaaaaa;
-}
-.table_id table th {
-    font-weight: normal;
-}
-.table_id  table td {
-    color: #aaaaaa;
-}
-.table_id table tbody tr {
-
-}
-.table_id table tbody tr:nth-of-type(even) {
-
-}
-.table_id table tbody tr:last-of-type {
-
-}
-.table_id table tbody tr.active-row {
-
-}
-/* ============================================== */
-/* timesheet */
-.timesheet_id {
-    padding: 10px;
-    overflow: hidden;
-    overflow-x: auto;
-}
-.timesheet_id .content {
-    border: 1px solid #305050;
-}
-.timesheet_id .content .item {
-    border: 1px solid #305050;
-    padding: 10px;
-    overflow: hidden;
-    overflow-x: auto;
-}
-.timesheet_id .content .item.month {
-    background-color: #305050;
-    padding: 5px 10px;
-    text-align: center;
-}
-.timesheet_id .content .item .profile {
-    padding: 10px 10px 20px 10px;
-    text-align: center;
-}
-.timesheet_id .content .item .profile .img {
-    display: inline-block;
-    background-color: #305050;
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
-    padding-top: 10px;
-}
-.timesheet_id .content .item .profile .img .icon {
-    display: inline-block;
-    font-size: 120px;
-}
-.timesheet_id .content .item .row {
-    border: 1px solid #305050;
-    margin-bottom: 10px;
-    position: relative;
-    min-height: 30px;
-}
-.timesheet_id .content .item .row .key {
-    background-color: #305050;
-    position: absolute;
-    top: 0px; 
-    bottom: 0px; 
-    left: 0px;
-    min-width: 120px;
-}
-.timesheet_id .content .item .row .key .label {
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0px 10px;
-}
-.timesheet_id .content .item .row .field {
-    position: absolute;
-    top: 0px; 
-    bottom: 0px;
-    right: 0px;
-    left: 120px;
-}
-.timesheet_id .content .item .row .field .input {
-    width: 100%;
-    height: 100%;
-    display: inline-block;
-    vertical-align: middle;
-    padding: 0px 10px;
-}
-.timesheet_id .table_id {
-    padding: 0px;
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-.timesheet_id .table_id .time {
-    color: #aaaaaa;
-}
-.timesheet_id .table_id .time input {
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-.timesheet_id .table_id .days {
-    background-color: <?php echo $config['app_light_color']; ?>;
-}
-.timesheet_id .table_id .days input {
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-.timesheet_id .table_id .total {
-    background-color: <?php echo $config['app_light_color']; ?>;
-}
-.timesheet_id .table_id .total input {
-    font-family: "Archivo Narrow";
-    font-size: 18px;
-}
-/* ============================================== */
-/* titlebar */
-.titlebar_id {
-    position: relative;
-    border-bottom: 5px solid <?php echo $config['app_light_color']; ?>;
-    padding-bottom: 5px;
-}
-.titlebar_id .logo {
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-    height: 20px;
-}
-.titlebar_id .logo img {
-    width: auto;
-    height: 20px;
-}
-.titlebar_id .app_name {
-    display: inline-block;
-    vertical-align: middle;
-}
-.titlebar_id .title {
-    position: absolute;
-    left: 110px;
-    right: 30px;
-    top: 0px;
-    bottom: 0px;
-    display: inline-block;
-    vertical-align: middle;
-    text-align: center;
-}
-.titlebar_id .login {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    display: inline-block;
-    vertical-align: middle;
-    border: 2px solid <?php echo $config['app_light_color']; ?>;
-    background-color: <?php echo $config['app_light_color']; ?>;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    text-align: center;
-    cursor: pointer;
-}
-/* ============================================== */
-/* tooltip */
-.tooltip_id {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black; 
-}
-.tooltip_id .tooltiptext {
-    visibility: hidden;
-    background-color: #305050;
-    color: #aaaaaa;
-    text-align: center;
-    padding: 5px 0px;
-    border-radius: 5px;
-    position: absolute;
-    z-index: 1;
-    width: 120px;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
-}
-.tooltip_id:hover .tooltiptext {
-    visibility: visible;
-}
-.tooltip_id .tooltiptext::after {
-    content: " ";
-    position: absolute;
-    bottom: 100%;
-    left: 50%;
-    margin-left: -5px;
-    border-width: 5px;
-    border-style: solid;
-    border-color: transparent transparent <?php echo $config['app_light_color']; ?> transparent;
-}
 /* ============================================== */
 /* view */
-.view_id {
-    position: relative;
-    min-height: 30px;
-}
-.view_id .date {
-    background-color: <?php echo $config['app_light_color']; ?>;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    padding-top: 2px;
-    border-radius: 5px;
-    min-width: 100px;
+.view {
+    top: 5px;
+    left: 95px;
+    right: 95px;
     text-align: center;
 }
-.view_id .view {
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    left: 110px;
-    right: 90px;
-    text-align: center;
-}
-.view_id .view .data {
+/* ============================================== */
+/* view2 */
+.view2 {
     background-color: <?php echo $config['app_light_color']; ?>;
     display: inline-block;
+    vertical-align: middle;
     text-align: center;
-    height: 100%;
     padding: 2px 10px;
-    border-radius: 5px;
-    text-align: center;
-}
-.view_id .time {
-    background-color: <?php echo $config['app_light_color']; ?>;
-    position: absolute;
-    top: 0px;
-    bottom: 0px;
-    right: 0px;
-    min-width: 80px;
-    text-align: center;
-    padding-top: 2px;
     border-radius: 5px;
 }
 /* ============================================== */
 /* window */
-.window_id {
+.window {
     border: 1px solid #aaaaaa;
     border-radius: 5px;
     overflow: hidden;
     overflow-x: auto;
+    padding: 10px;
 }
 /* ============================================== */
 /* mobile */ 

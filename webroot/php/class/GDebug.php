@@ -12,11 +12,16 @@ class GDebug extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         GSQLite::Instance()->test();
         $this->request();
-        echo sprintf("<div class='debug_id'>\n");
-        echo sprintf("<div class='header'>\n");
-        GWidget::Create("icon")->icon2("trash", "", "clear", "Nettoyer");
+        echo sprintf("<div class=''>\n");
+        echo sprintf("<div class='header right'>\n");
+        //
+        echo sprintf("<form class='icon4' action='' method='post'>\n");
+        echo sprintf("<input type='hidden' id='req' name='req' value='clear'/>\n"); 
+        echo sprintf("<button class='tooltip_id' type='submit' title='Nettoyer'><i class='fa fa-trash-o'></i></button>\n");
+        echo sprintf("</form>\n");        
+        //
         echo sprintf("</div>\n");
-        echo sprintf("<div id='debug' class='body'>\n");
+        echo sprintf("<div class='debug'>\n");
         echo sprintf("%s\n", $lApp->debug);
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");

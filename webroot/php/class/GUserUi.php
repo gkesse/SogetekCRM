@@ -17,9 +17,9 @@ class GUserUi extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         $this->request();
         echo sprintf("<form action='' method='post' enctype='multipart/form-data'>\n");
-        echo sprintf("<div class='user_id login_id'>\n");
+        echo sprintf("<div class='box3'>\n");
         //
-        echo sprintf("<div class='body'>\n");
+        echo sprintf("<div class='body2'>\n");
         echo sprintf("<div class='profile'><i class='fa fa-user'></i></div>\n");
         //
         if($this->datas["code"] != "") {
@@ -29,23 +29,23 @@ class GUserUi extends GWidget {
         }
         //
         echo sprintf("<div class='edit'>\n");
-        echo sprintf("<label class='label' for='username'><i class='icon fa fa-user'></i></label>\n");
+        echo sprintf("<label class='label' for='username'><i class='icon2 fa fa-user'></i></label>\n");
         echo sprintf("<div class='field'><input class='input' type='text' id='username' name='username' placeholder='Nom d&#39;utilisateur' value='%s' required/></div>\n", $this->datas["username"]);
         echo sprintf("</div>\n");
         //
         echo sprintf("<div class='edit'>\n");
-        echo sprintf("<label class='label' for='password'><i class='icon fa fa-key'></i></label>\n");
+        echo sprintf("<label class='label' for='password'><i class='icon2 fa fa-key'></i></label>\n");
         echo sprintf("<div class='field'><input class='input' type='password' id='password' name='password' placeholder='Mot de passe' value='%s' required/></div>\n", $this->datas["password"]);
         echo sprintf("</div>\n");
         //
         echo sprintf("<div class='edit'>\n");
-        echo sprintf("<label class='label' for='password'><i class='icon fa fa-key'></i></label>\n");
+        echo sprintf("<label class='label' for='password'><i class='icon2 fa fa-key'></i></label>\n");
         echo sprintf("<div class='field'><input class='input' type='password' id='confirm' name='confirm' placeholder='Confirmer le mot de passe' value='%s' required/></div>\n", $this->datas["confirm"]);
         echo sprintf("</div>\n");
         //
-        echo sprintf("<div class='buttons'>\n");
-        echo sprintf("<a class='button_id' href='/home'><i class='icon fa fa-times'></i> Annuler</a>\n");
-        echo sprintf("<button class='button_id' type='submit' id='req' name='req' value='create'>
+        echo sprintf("<div class='right'>\n");
+        echo sprintf("<a class='button' href='/home'><i class='icon fa fa-times'></i> Annuler</a>\n");
+        echo sprintf("<button class='button' type='submit' id='req' name='req' value='create'>
         <i class='icon fa fa-user'></i> Créer</button>\n");
         //
         echo sprintf("</div>\n");
