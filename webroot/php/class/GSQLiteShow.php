@@ -3,11 +3,15 @@
 class GSQLiteShow extends GWidget {
     //===============================================
     private $order = "";
-    private $m_pageNumber = 1;
-    private $m_colMax = 20;
+    private $m_pageNumber;
+    private $m_colMax;
     //===============================================
     public function __construct() {
+        $this->m_pageNumber = &$_SESSION["sqlite_show_page_number"];
+        $this->m_colMax = &$_SESSION["sqlite_show_col_max"];
         
+        if(!isset($this->m_pageNumber)) {$this->m_pageNumber = 1;}
+        if(!isset($this->m_colMax)) {$this->m_colMax = 20;}
     }
     //===============================================
     // method
