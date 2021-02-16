@@ -256,6 +256,21 @@ table th {
     background-color: <?php echo $config['app_light_color']; ?>;
 }
 /* ============================================== */
+/* button3 */
+.button3 {
+    top: 2px;
+    left: 10px;
+    bottom: 0px;
+    right: 35px;
+}
+/* ============================================== */
+/* button4 */
+.button4 {
+    width: 100%;
+    height: 100%;
+    text-align: left;
+}
+/* ============================================== */
 /* center */
 .center {
     text-align: center;
@@ -273,6 +288,11 @@ table th {
 /* content2 */
 .content2 {
     border: 1px solid #305050;
+}
+/* ============================================== */
+/* cursor */
+.cursor {
+    cursor: pointer;
 }
 /* ============================================== */
 /* date */
@@ -351,6 +371,11 @@ table th {
 /* float */
 .float {
     position: absolute;
+}
+/* ============================================== */
+/* float2 */
+.float2 {
+    position: relative;
 }
 /* ============================================== */
 /* html */
@@ -534,6 +559,43 @@ table th {
     margin-bottom: 10px;
 }
 /* ============================================== */
+/* menu */
+.menu {
+    position: absolute;
+    display: inline-block;
+    right: 5px;
+}
+.menu2 {
+    background-color: transparent;
+}
+.menu3 {
+    padding: 0px 5px;
+    cursor: pointer;
+}
+.menu4 {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: <?php echo $config['app_bg_color']; ?>;
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 200px;
+    z-index: 1;
+}
+.menu2:hover .menu4 {
+    display: block;
+}
+.menu5 {
+    background-color: transparent;
+    padding: 2px 10px;
+    display: block;
+    border-radius: 5px;
+}
+.menu5:hover {
+    background-color: <?php echo $config['app_light_color']; ?>;
+}
+/* ============================================== */
 /* network */
 .network {
     display: inline-block;
@@ -591,6 +653,11 @@ table th {
     min-height: 30px;
 }
 /* ============================================== */
+/* row2 */
+.row2 {
+    min-height: 35px;
+}
+/* ============================================== */
 /* sep */
 .sep {
     font-size: 16px;
@@ -601,6 +668,12 @@ table th {
 .sep2 {
     font-size: 16px;
     margin: 0px 5px;
+}
+/* ============================================== */
+/* setting */
+.setting {
+    top: 6px;
+    right: 10px;
 }
 /* ============================================== */
 /* success */
@@ -668,8 +741,6 @@ table th {
 .window {
     border: 1px solid #aaaaaa;
     border-radius: 5px;
-    overflow: hidden;
-    overflow-x: auto;
     padding: 10px;
 }
 /* ============================================== */

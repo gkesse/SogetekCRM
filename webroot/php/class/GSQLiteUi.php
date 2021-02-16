@@ -9,23 +9,60 @@ class GSQLiteUi extends GWidget {
     // method
     //===============================================
     public function run() {
+        $this->request();
+        //
         $lTables = gSQLite::Instance()->queryCol("
         select name from sqlite_master
         where type='table'
         ");
-        echo sprintf("<div class='sqlite_id'>\n");
+        echo sprintf("<div class=''>\n");
         for($i = 0; $i < count($lTables); $i++) {
             $lTable = $lTables[$i];
             $lTableUpper = strtoupper($lTable);
             $lTableLower = strtolower($lTable);
-            echo sprintf("<form action='/home/sqlite/show' method='post'>
-            <input type='hidden' id='req' name='req' value='show_table'/>
-            <input type='hidden' id='table' name='table' value='%s'/>
-            <button class='button2' type='submit'>
-            <i class='icon fa fa-database'></i>
-            %s</button></form>\n", $lTableLower, $lTableLower);
+            //
+            echo sprintf("<div class='button2 float2 row2'>\n");
+            //
+            echo sprintf("<div class='menu'>\n");
+            echo sprintf("<div class='menu2'>\n");
+            echo sprintf("<i class='menu3 fa fa-cog'></i>\n");
+            echo sprintf("<div class='menu4'>\n");
+            //
+            echo sprintf("<form class='menu5' action='' method='post'>\n");
+            echo sprintf("<input type='hidden' id='table' name='table' value='%s'/>\n", $lTableLower);
+            echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_table'>
+            <i class='icon fa fa-book'></i> Afficher les données</button>\n", $lTableLower);
+            echo sprintf("</form>\n");
+            //
+            echo sprintf("<form class='menu5' action='' method='post'>\n");
+            echo sprintf("<input type='hidden' id='table' name='table' value='%s'/>\n", $lTableLower);
+            echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_schema'>
+            <i class='icon fa fa-book'></i> Afficher le schema</button>\n", $lTableLower);
+            echo sprintf("</form>\n");
+            //
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+            echo sprintf("</div>\n");
+            //
+            echo sprintf("<form class='float button3' action='' method='post'>\n");
+            echo sprintf("<input type='hidden' id='table' name='table' value='%s'/>\n", $lTableLower);
+            echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_table'>
+            <i class='icon fa fa-database'></i> %s</button>\n", $lTableLower);
+            echo sprintf("</form>\n");
+            //
+            echo sprintf("</div>\n");
         }
         echo sprintf("</div>\n");
+    }
+    //===============================================
+    public function request() {
+        $lApp = GManager::Instance()->getData()->app;
+        if(isset($_POST["req"])) {
+            $lReq = $_POST["req"];
+            if($lReq == "show_table") {
+                GManager::Instance()->redirect("/home/sqlite/show");
+            }
+        }
     }
     //===============================================
 }
