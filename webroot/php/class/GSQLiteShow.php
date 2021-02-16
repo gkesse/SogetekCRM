@@ -93,12 +93,7 @@ class GSQLiteShow extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         if(isset($_POST["req"])) {
             $lReq = $_POST["req"];
-            if($lReq == "show_table") {
-                $lApp->table_name = $_POST["table"];
-                if($lApp->table_name == "view_data") {$this->order = "order by view_key";}
-                else if($lApp->table_name == "config_data") {$this->order = "order by config_key";}
-            }
-            else if($lReq == "page_number") {
+            if($lReq == "page_number") {
                 $this->m_pageNumber = $_POST["page"];
             }
             else if($lReq == "col_max") {
