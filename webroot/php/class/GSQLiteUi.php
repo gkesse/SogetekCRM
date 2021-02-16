@@ -60,6 +60,7 @@ class GSQLiteUi extends GWidget {
         if(isset($_POST["req"])) {
             $lReq = $_POST["req"];
             if($lReq == "show_table") {
+                $lApp->table_name = $_POST["table"];
                 GManager::Instance()->redirect("/home/sqlite/show");
             }
         }
