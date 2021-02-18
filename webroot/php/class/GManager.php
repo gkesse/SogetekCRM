@@ -117,6 +117,7 @@ class GManager {
         $lNoLastUrl = array(
         "home/login",
         "home/logout",
+        "home/message",
         );
         if(!in_array($lApp->page_id, $lNoLastUrl)) {
             $lApp->last_url = "/".$lApp->page_id;
