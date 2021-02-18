@@ -41,9 +41,15 @@ class GManager {
         $this->mgr->app->months = array("inconnu", "Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre");
     }
     //===============================================
+    public static function Instance2() {
+        if(is_null(self::$m_instance)) {
+            self::$m_instance = new GManager();  
+        }
+        return self::$m_instance;
+    }
+    //===============================================
     public static function Instance() {
-        //$lOs = self::GetOs();
-        $lOs = "win";
+        $lOs = self::GetOs();
         if($lOs == "win") {return GManagerWin::Instance();}
         if($lOs == "unix") {return GManagerUnix::Instance();}
         return GManagerUnix::Instance();
@@ -51,7 +57,7 @@ class GManager {
     //===============================================
     public static function GetOs() {
         $lOs = "unix";
-        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+        if (strtoupper(substr(PHP_OS, 0, 3)) == "WIN") {
             $lOs = "win";
         }      
         return $lOs;

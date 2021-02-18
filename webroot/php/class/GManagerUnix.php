@@ -4,7 +4,7 @@ class GManagerUnix extends GManager {
     //===============================================
     private static $m_instance = null;
     //===============================================
-    private function __construct() {
+    public function __construct() {
         parent::__construct();
     }
     //===============================================
