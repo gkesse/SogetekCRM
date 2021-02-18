@@ -44,7 +44,7 @@ class GManager {
     public static function Instance() {
         $lOs = self::GetOs();
         if($lOs == "win") {return GManagerWin::Instance();}
-        if($lOs == "unix") {return GManagerUnix::Instance();}
+        if($lOs == "unix") {return GManagerWin::Instance();}
         return GManagerUnix::Instance();
     }
     //===============================================
