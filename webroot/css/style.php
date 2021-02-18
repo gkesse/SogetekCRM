@@ -9,8 +9,11 @@ $config = array(
 "app_bg_color" => "#102030",
 "app_light_color" => "#304050",
 "app_font_size" => 20,
+"app_font_family" => "Allan",
+"app_font_color" => "#ffffff",
 "app_icon_size" => 16,
 "login_size" => 30,
+"script_font_size" => 16,
 );
 //===============================================
 ?>
@@ -18,7 +21,7 @@ $config = array(
 /* common */ 
 /* ============================================== */
 * {
-    color: white;
+    color: <?php echo $config['app_font_color']; ?>;
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -40,7 +43,7 @@ html {
 
 body {
     background-color: <?php echo $config['app_bg_color']; ?>;
-    font-family: Allan;
+    font-family: <?php echo $config['app_font_family']; ?>;
     font-size: <?php echo $config['app_font_size']; ?>px;
     text-align: left;
 }
@@ -48,9 +51,9 @@ body {
 button {
     background-color: transparent;
     border: none;
-    color: white;
+    color: <?php echo $config['app_font_color']; ?>;
     cursor: pointer;
-    font-family: Allan;
+    font-family: <?php echo $config['app_font_family']; ?>;
     font-size: <?php echo $config['app_font_size']; ?>px;
 }
 
@@ -58,8 +61,8 @@ input {
     background-color: transparent;
     border: none;
     font-size: <?php echo $config['app_font_size']; ?>px;
-    color: white;
-    font-family: Allan;
+    color: <?php echo $config['app_font_color']; ?>;
+    font-family: <?php echo $config['app_font_family']; ?>;
 }
 
 input:-webkit-autofill,
@@ -81,11 +84,9 @@ textarea {
     background-color: transparent;
     border: none;
     border-radius: 0;
-    padding: 5px 10px 5px 10px;
-    font-family: arial;
+    font-family: <?php echo $config['app_font_family']; ?>;
     font-size: <?php echo $config['app_font_size']; ?>px;
-    color: white;
-    width: 100%;
+    color: <?php echo $config['app_font_color']; ?>;
     resize: none;
 }
 
@@ -123,7 +124,7 @@ hr:after {
     font-family: FontAwesome;
 	font-size: <?php echo $config['app_font_size']; ?>px;
     background-color: #051039;
-    color: white; 
+    color: <?php echo $config['app_font_color']; ?>; 
     display: inline-block;
     position: relative;
     top: -20px;
@@ -188,6 +189,21 @@ table th {
     margin: auto;
     border-radius: 5px;
     padding: 20px 10px 10px 10px;
+}
+/* ============================================== */
+/* body3 */
+.body3 {
+    background-color: <?php echo $config['app_light_color']; ?>;
+    min-height: 300px;
+    border-radius: 5px;
+    padding: 10px;
+    text-align: center;
+}
+/* ============================================== */
+/* body4 */
+.body4 {
+    border-radius: 5px;
+    text-align: center;
 }
 /* ============================================== */
 /* border */
@@ -386,6 +402,13 @@ table th {
 /* header */
 .header {
     border-bottom: 1px solid #ffffff;
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+}
+/* ============================================== */
+/* header2 */
+.header2 {
+    border-bottom: 2px solid <?php echo $config['app_light_color']; ?>;
     margin-bottom: 10px;
     padding-bottom: 10px;
 }
@@ -596,6 +619,22 @@ table th {
     background-color: <?php echo $config['app_light_color']; ?>;
 }
 /* ============================================== */
+/* menu6 */
+.menu6 {
+    display: none;
+    position: absolute;
+    left: 0;
+    background-color: <?php echo $config['app_bg_color']; ?>;
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    border-radius: 5px;
+    padding: 5px;
+    min-width: 200px;
+    z-index: 1;
+}
+.menu2:hover .menu6 {
+    display: block;
+}
+/* ============================================== */
 /* network */
 .network {
     display: inline-block;
@@ -613,6 +652,17 @@ table th {
 .overflow {
     overflow: hidden;
     overflow-x: auto;
+}
+/* ============================================== */
+/* output */
+.output {
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Courier Prime";
+    width: 100%;
+    text-align: left;
+    font-size: <?php echo $config['script_font_size']; ?>px;
 }
 /* ============================================== */
 /* profile */
@@ -681,6 +731,16 @@ table th {
     color: #aaff55;
     text-align: center;
     margin-bottom: 20px;
+}
+/* ============================================== */
+/* textarea */
+.textarea {
+    border: 2px solid <?php echo $config['app_light_color']; ?>;
+    padding: 10px;
+    border-radius: 5px;
+    font-family: "Courier Prime";
+    font-size: <?php echo $config['script_font_size']; ?>px;
+    width: 100%;
 }
 /* ============================================== */
 /* time */
