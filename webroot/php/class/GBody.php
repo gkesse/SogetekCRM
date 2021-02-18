@@ -10,9 +10,6 @@ class GBody extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
-        $lWindow = GWidget::Create("window");
-        $lWindow->load();
-        $lWindow->start();
         // body
         echo sprintf("<div class='html'>\n");
         echo sprintf("<div class='body'>\n");
@@ -22,7 +19,7 @@ class GBody extends GWidget {
         GWidget::Create("view")->run();
         GWidget::Create("network")->run();
         GWidget::Create("addresskey")->run();
-        $lWindow->run();
+        $lApp->win->run();
         //
         echo sprintf("</div>\n");
         echo sprintf("</div>\n");

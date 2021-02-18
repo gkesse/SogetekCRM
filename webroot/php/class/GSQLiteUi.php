@@ -3,7 +3,7 @@
 class GSQLiteUi extends GWidget {
     //===============================================
     private $m_widgetMap;
-    private $m_key = "show_tables";
+    private $m_req = "show_tables";
     //===============================================
     public function __construct() {
         $this->m_widgetMap = GWidget::Create("stackwidget");
@@ -38,7 +38,7 @@ class GSQLiteUi extends GWidget {
         echo sprintf("</div>\n");
         // body
         echo sprintf("<div class='body4'>\n");
-        $lPage = $this->m_widgetMap->getPage($this->m_key);
+        $lPage = $this->m_widgetMap->getPage($this->m_req);
         GWidget::Create($lPage)->run();
         echo sprintf("</div>\n");
         //
@@ -49,7 +49,7 @@ class GSQLiteUi extends GWidget {
         $lApp = GManager::Instance()->getData()->app;
         if(isset($_POST["req"])) {
             $lReq = $_POST["req"];
-            $this->m_key = $lReq;
+            $this->m_req = $lReq;
             if($lReq == "show_table") {
 
             }
