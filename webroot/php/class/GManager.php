@@ -4,9 +4,9 @@ class GManager {
     //===============================================
     private static $m_instance = null;
     //===============================================
-    private $mgr;
+    protected $mgr;
     //===============================================
-    private function __construct() {
+    public function __construct() {
         // manager
         $this->mgr = new sGManager();
         // app
@@ -18,6 +18,8 @@ class GManager {
         $this->mgr->app->debug = &$_SESSION["debug"];
         $this->mgr->app->last_url = &$_SESSION["last_url"];
         $this->mgr->app->sqlite_db_path = "/data/sqlite/config.dat";
+        $this->mgr->app->sqlite_db_path2 = "data/sqlite/config.dat";
+        $this->mgr->app->sqlite_bin = "sqlite3";
         $this->mgr->app->google_fonts = "/libs/google_fonts";
         $this->mgr->app->logo_web = "/data/img/logo_web.png";
         $this->mgr->app->logo_flat = "/data/img/logo_flat.png";
@@ -40,10 +42,18 @@ class GManager {
     }
     //===============================================
     public static function Instance() {
-        if(is_null(self::$m_instance)) {
-            self::$m_instance = new GManager();  
-        }
-        return self::$m_instance;
+        $lOs = self::GetOs();
+        if($lOs == "win") {return GManagerWin::Instance();}
+        if($lOs == "unix") {return GManagerUnix::Instance();}
+        return GManagerUnix::Instance();
+    }
+    //===============================================
+    public static function GetOs() {
+        $lOs = "unix";
+        if (strtoupper(substr(PHP_OS, 0, 3)) === 'WIN') {
+            $lOs = "win";
+        }      
+        return $lOs;
     }
     //===============================================
     // data
@@ -64,6 +74,7 @@ class GManager {
         $this->fullUrl();
         $this->initFilesystem();
         $this->initSession();
+        $this->getTitle();
     }
     //===============================================
     // session
@@ -110,6 +121,15 @@ class GManager {
         if(!in_array($lApp->page_id, $lNoLastUrl)) {
             $lApp->last_url = "/".$lApp->page_id;
         }
+    }
+    //===============================================
+    // title
+    //===============================================
+    public function getTitle() {
+        $lApp = $this->mgr->app;
+        $lTitle = $lApp->page_map->getTitle($lApp->page_id);
+        $lApp->title = $lApp->app_name;
+        if($lTitle != "") {$lApp->title = $lTitle . " | " . $lApp->app_name;}
     }
     //===============================================
     public function fullUrl() {
@@ -256,7 +276,10 @@ class sGManager {
 class sGApp {
     // app
     public $app_name;
+    // win
+    public $win;
     // page
+    public $page_map;
     public $page_id;
     // lang
     public $lang;
@@ -272,6 +295,8 @@ class sGApp {
     public $full_url;
     // sqlite
     public $sqlite_db_path;
+    public $sqlite_db_path2;
+    public $sqlite_bin;
     // logo
     public $logo_web;
     public $logo_flat;

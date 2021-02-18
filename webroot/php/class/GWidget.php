@@ -3,7 +3,7 @@
 class GWidget {
     //===============================================
     public function __construct() {
-        
+
     }
     //===============================================
     public static function Create($key) {
@@ -47,15 +47,12 @@ class GWidget {
     }
     //===============================================
     public function run() {}
-    public function load() {}
-    public function start() {}
-    public function end() {}
-    public function space($size) {}
-    //===============================================
+    public function run2($key) {}
     public function addItem($key, $text, $icon) {}
     public function addPage($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
+    public function getSummary2($key) {return null;}
     //===============================================
 }
 //===============================================

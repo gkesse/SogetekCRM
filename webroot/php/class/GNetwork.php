@@ -10,8 +10,7 @@ class GNetwork extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
-        $lTitle = $lApp->title . " | " . $lApp->app_name;
-        $lSummary = $this->getSummary();;
+        $lSummary = $this->getSummary();
         //
         echo sprintf("<div class='center margin3'>\n");
         //
@@ -19,7 +18,7 @@ class GNetwork extends GWidget {
         echo sprintf("<div class='network margin2'><i class='fa fa-facebook'></i></div>\n");
         echo sprintf("</a>\n");
         //
-        echo sprintf("<a href='https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s&summary=%s' target='_blank'>\n", $lApp->full_url, $lTitle, $lSummary);
+        echo sprintf("<a href='https://www.linkedin.com/shareArticle?mini=true&url=%s&title=%s&summary=%s' target='_blank'>\n", $lApp->full_url, $lApp->title, $lSummary);
         echo sprintf("<div class='network'><i class='fa fa-linkedin'></i></div>\n");
         echo sprintf("</a>\n");
         //
@@ -27,7 +26,8 @@ class GNetwork extends GWidget {
     }
      //===============================================
     public function getSummary() {
-        $lSummary = "Création d\'une feuille de temps";
+        $lApp = GManager::Instance()->getData()->app;
+        $lSummary = $lApp->page_map->getSummary2($lApp->page_id);
         return $lSummary;
     }
    //===============================================

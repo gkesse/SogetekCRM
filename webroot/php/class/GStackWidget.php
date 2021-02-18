@@ -24,6 +24,16 @@ class GStackWidget extends GWidget {
         return GManager::Instance()->getValue($this->m_titleMap, $key, "");
     }
     //===============================================
+    public function run2($key) {
+        $lPage = $this->getPage($key);
+        GWidget::Create($lPage)->run();
+    }
+    //===============================================
+    public function getSummary2($key) {
+        $lPage = $this->getPage($key);
+        return GWidget::Create($lPage)->getSummary();
+    }
+    //===============================================
 }
 //===============================================
 ?>
