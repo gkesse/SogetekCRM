@@ -1,14 +1,15 @@
 <?php   
 //===============================================
-class GSQLiteUi extends GWidget {
+class GSQLiteScript extends GWidget {
     //===============================================
     private $m_widgetMap;
-    private $m_key = "show_tables";
+    private $m_req = "execute_sql";
+    private $m_action = "write_query";
     //===============================================
     public function __construct() {
         $this->m_widgetMap = GWidget::Create("stackwidget");
-        $this->m_widgetMap->addPage("show_tables", "sqlitetables", "Afficher les tables");
-        $this->m_widgetMap->addPage("execute_sql", "sqlitescript", "Exécuter une requête sql");
+        $this->m_widgetMap->addPage("write_query", "sqlitequery", "Saisir une requête");
+        $this->m_widgetMap->addPage("run_query", "sqliteoutput", "Résultat de l'exécution");
     }
     //===============================================
     // method
@@ -24,13 +25,15 @@ class GSQLiteUi extends GWidget {
         echo sprintf("<div class='menu6' style='min-width: 250px;'>\n");
         //
         echo sprintf("<form class='menu5' action='' method='post'>\n");
-        echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_tables'>
-        <i class='icon fa fa-book'></i> Afficher les tables</button>\n");
+        echo sprintf("<input type='hidden' id='req' name='req' value='%s'/>\n", $this->m_req);
+        echo sprintf("<button class='button4' type='submit' id='action' name='action' value='write_query'>
+        <i class='icon fa fa-book'></i> Saisir une requête</button>\n");
         echo sprintf("</form>\n");
         //
-        echo sprintf("<form class='menu5' action='' method='post'>\n");
-        echo sprintf("<button class='button4' type='submit' id='req' name='req' value='execute_sql'>
-        <i class='icon fa fa-book'></i> Exécuter une requête sql</button>\n");
+        echo sprintf("<form id='run_query' class='menu5' action='' method='post'>\n");
+        echo sprintf("<input type='hidden' id='req' name='req' value='%s'/>\n", $this->m_req);
+        echo sprintf("<button class='button4' type='submit' id='action' name='action' value='run_query'>
+        <i class='icon fa fa-book'></i> Exécuter une requête</button>\n");
         echo sprintf("</form>\n");
         //
         echo sprintf("</div>\n");
@@ -38,7 +41,7 @@ class GSQLiteUi extends GWidget {
         echo sprintf("</div>\n");
         // body
         echo sprintf("<div class='body4'>\n");
-        $lPage = $this->m_widgetMap->getPage($this->m_key);
+        $lPage = $this->m_widgetMap->getPage($this->m_action);
         GWidget::Create($lPage)->run();
         echo sprintf("</div>\n");
         //
@@ -47,10 +50,10 @@ class GSQLiteUi extends GWidget {
     //===============================================
     public function request() {
         $lApp = GManager::Instance()->getData()->app;
-        if(isset($_POST["req"])) {
-            $lReq = $_POST["req"];
-            $this->m_key = $lReq;
-            if($lReq == "show_table") {
+        if(isset($_POST["action"])) {
+            $lReq = $_POST["action"];
+            $this->m_action = $lReq;
+            if($lReq == "") {
 
             }
         }

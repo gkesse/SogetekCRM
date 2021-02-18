@@ -25,6 +25,10 @@ class GWidget {
         if($key == "profile") {return new GProfileUi();}
         //
         if($key == "sqlite") {return new GSQLiteUi();}
+        if($key == "sqlitetables") {return new GSQLiteTables();}
+        if($key == "sqlitescript") {return new GSQLiteScript();}
+        if($key == "sqlitequery") {return new GSQLiteQuery();}
+        if($key == "sqliteoutput") {return new GSQLiteOutput();}
         if($key == "sqliteshow") {return new GSQLiteShow();}
         //
         if($key == "timesheet") {return new GTimesheetUi();}
@@ -49,7 +53,7 @@ class GWidget {
     public function space($size) {}
     //===============================================
     public function addItem($key, $text, $icon) {}
-    public function addStack($key, $text, $title) {}
+    public function addPage($key, $text, $title) {}
     public function getPage($key) {return null;}
     public function getTitle($key) {return null;}
     //===============================================

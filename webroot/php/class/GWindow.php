@@ -19,19 +19,19 @@ class GWindow extends GWidget {
             $lLoginUrl = "home/logout";
         }
         //
-        $this->m_widgetMap->addStack("home", "home", "Accueil");
-        $this->m_widgetMap->addStack($lLoginUrl, "login", $lLogin);
-        $this->m_widgetMap->addStack("home/users", "user", "Utilisateurs");
-        $this->m_widgetMap->addStack("home/profile", "profile", "Profil");
+        $this->m_widgetMap->addPage("home", "home", "Accueil");
+        $this->m_widgetMap->addPage($lLoginUrl, "login", $lLogin);
+        $this->m_widgetMap->addPage("home/users", "user", "Utilisateurs");
+        $this->m_widgetMap->addPage("home/profile", "profile", "Profil");
         //
-        $this->m_widgetMap->addStack("home/sqlite", "sqlite", "SQLite");
-        $this->m_widgetMap->addStack("home/sqlite/show", "sqliteshow", "Affichage de la table");
+        $this->m_widgetMap->addPage("home/sqlite", "sqlite", "SQLite");
+        $this->m_widgetMap->addPage("home/sqlite/show", "sqliteshow", "Affichage de la table");
         //
-        $this->m_widgetMap->addStack("home/timesheet", "timesheet", "Feuille de temps");
-        $this->m_widgetMap->addStack("home/filesystem", "filesystem", "Filesystem");
+        $this->m_widgetMap->addPage("home/timesheet", "timesheet", "Feuille de temps");
+        $this->m_widgetMap->addPage("home/filesystem", "filesystem", "Filesystem");
         //
-        $this->m_widgetMap->addStack("home/debug", "debug", "Debug");
-        $this->m_widgetMap->addStack("home/message", "message", "Message");
+        $this->m_widgetMap->addPage("home/debug", "debug", "Debug");
+        $this->m_widgetMap->addPage("home/message", "message", "Message");
     }
     //===============================================
     public function start() {

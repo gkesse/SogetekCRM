@@ -11,7 +11,7 @@ class GStackWidget extends GWidget {
     //===============================================
     // method
     //===============================================
-    public function addStack($key, $page, $title) {
+    public function addPage($key, $page, $title) {
         $this->m_pageMap[$key] = $page;
         $this->m_titleMap[$key] = $title;
     }
