@@ -26,9 +26,10 @@ class GSQLiteTable extends GWidget {
         $lHeaders = array();
         //
         if($this->m_tableName != "") {
+            $lOrder = $this->getOrder($this->m_tableName);
             $lDataMap = GSQLite::Instance()->queryMap(sprintf("
-            select * from %s
-            ", $this->m_tableName));
+            select * from %s %s
+            ", $this->m_tableName, $lOrder));
             $lHeaders = GSQLite::Instance()->getHeaders();
         }
         //
@@ -107,6 +108,12 @@ class GSQLiteTable extends GWidget {
         if(isset($_POST["table"])) {
             $this->m_tableName = $_POST["table"];
         }
+    }
+    //===============================================
+    public function getOrder($table) {
+        if($table == "view_data") {return "order by view_key";}
+        if($table == "user_data") {return "order by user_name";}
+        return "";
     }
     //===============================================
 }

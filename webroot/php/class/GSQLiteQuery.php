@@ -2,8 +2,10 @@
 //===============================================
 class GSQLiteQuery extends GWidget {
     //===============================================
+    private $m_query;
+    //===============================================
     public function __construct() {
-
+        $this->m_query = &$_SESSION["sqlite_query"];
     }
     //===============================================
     // method
@@ -13,9 +15,8 @@ class GSQLiteQuery extends GWidget {
         //
         echo sprintf("<div class=''>\n");
         // 
-        echo sprintf("<textarea class='textarea' form='run_query' id='query' name='query' rows='4' cols='50' maxlength='200'
-        placeholder='Saisir une requête'>\n");
-        echo sprintf("</textarea>\n");
+        echo sprintf("<textarea class='textarea' form='run_query' name='query' rows='4' cols='50' maxlength='200' 
+        placeholder='Saisir une requête'>%s</textarea>\n", $this->m_query);
         //
         echo sprintf("</div>\n");
     }
@@ -23,8 +24,8 @@ class GSQLiteQuery extends GWidget {
     public function request() {
         $lApp = GManager::Instance()->getData()->app;
         if(isset($_POST["action"])) {
-            $lReq = $_POST["action"];
-            if($lReq == "") {
+            $lAction = $_POST["action"];
+            if($lAction == "") {
 
             }
         }

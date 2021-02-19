@@ -2,10 +2,11 @@
 //===============================================
 class GSQLiteOutput extends GWidget {
     //===============================================
+    private $m_query;
     private $m_output = "Aucun texte n'a été généré en sortie";
     //===============================================
     public function __construct() {
-
+        $this->m_query = &$_SESSION["sqlite_query"];
     }
     //===============================================
     // method
@@ -15,7 +16,7 @@ class GSQLiteOutput extends GWidget {
         //
         echo sprintf("<div class=''>\n");
         // 
-        echo sprintf("<div class='output'>%s</div>\n", $this->m_output);
+        echo sprintf("<pre class='output'>%s</pre>\n", $this->m_output);
         //
         echo sprintf("</div>\n");
     }
@@ -34,6 +35,7 @@ class GSQLiteOutput extends GWidget {
                         $lFormat .= sprintf("%s %s \"%s\"", $lApp->sqlite_bin, $lApp->sqlite_db_path2, $lQuery);
                         $lOutput = shell_exec($lFormat);
                     }
+                    $this->m_query = $lQuery;
                 }
                 if($lOutput != "") {$this->m_output = $lOutput;}
             }
