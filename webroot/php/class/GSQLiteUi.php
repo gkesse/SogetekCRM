@@ -61,7 +61,7 @@ class GSQLiteUi extends GWidget {
                 GSQLite::Instance()->queryWrite(sprintf("
                 drop table if exists %s
                 ", $lTable));
-                GManager::Instance()->redirect("home/sqlite");
+                GManager::Instance()->redirect("/home/sqlite");
             }
         }
     }
