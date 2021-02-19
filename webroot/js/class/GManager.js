@@ -39,19 +39,19 @@ var GManager = (function() {
             // request
             //===============================================
             run: function(obj, req) {
-                if(req == "sqlite_show_page_number") {this.sqlite_show_page_number(obj, req); return}
-                if(req == "sqlite_show_col_max") {this.sqlite_show_col_max(obj, req); return}
+                if(req == "sqlite_table_page_number") {this.sqlite_table_page_number(obj, req); return}
+                if(req == "sqlite_table_col_max") {this.sqlite_table_col_max(obj, req); return}
             },
             //===============================================
             // sqlite
             //===============================================
-            sqlite_show_page_number: function(obj, req) {
-                var lForm = document.getElementById("sqlite_show_page_number_form");
+            sqlite_table_page_number: function(obj, req) {
+                var lForm = document.getElementById("sqlite_table_page_number_form");
                 lForm.submit();
             },
             //===============================================
-            sqlite_show_col_max: function(obj, req) {
-                var lForm = document.getElementById("sqlite_show_col_max_form");
+            sqlite_table_col_max: function(obj, req) {
+                var lForm = document.getElementById("sqlite_table_col_max_form");
                 lForm.submit();
             },
             //===============================================
