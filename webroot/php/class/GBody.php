@@ -17,7 +17,7 @@ class GBody extends GWidget {
         //
         GWidget::Create("titlebar")->run();
         GWidget::Create("view")->run();
-        GWidget::Create("network")->run();
+        //GWidget::Create("network")->run();
         GWidget::Create("addresskey")->run();
         $lApp->win->run();
         //
