@@ -41,6 +41,12 @@ class GSQLiteTables extends GWidget {
             <i class='icon fa fa-book'></i> Afficher le schema</button>\n", $lTableLower);
             echo sprintf("</form>\n");
             //
+            echo sprintf("<form class='menu5' action='' method='post'>\n");
+            echo sprintf("<input type='hidden' name='table' value='%s'/>\n", $lTableLower);
+            echo sprintf("<button class='button4' type='submit' name='req' value='drop_table'>
+            <i class='icon fa fa-book'></i> Supprimer la table</button>\n", $lTableLower);
+            echo sprintf("</form>\n");
+            //
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
             echo sprintf("</div>\n");
@@ -58,9 +64,9 @@ class GSQLiteTables extends GWidget {
     //===============================================
     public function request() {
         $lApp = GManager::Instance()->getData()->app;
-        if(isset($_POST["action"])) {
-            $lAction = $_POST["action"];
-            if($lAction == "") {
+        if(isset($_POST["req"])) {
+            $lReq = $_POST["req"];
+            if($lReq == "") {
 
             }
         }

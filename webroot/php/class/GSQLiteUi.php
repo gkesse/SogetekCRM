@@ -55,8 +55,13 @@ class GSQLiteUi extends GWidget {
         if(isset($_POST["req"])) {
             $lReq = $_POST["req"];
             $this->m_req = $lReq;
-            if($lReq == "") {
-
+            if($lReq == "drop_table") {
+                $lTable = $_POST["table"];
+                GManager::Instance()->loginRoot();
+                GSQLite::Instance()->queryWrite(sprintf("
+                drop table if exists %s
+                ", $lTable));
+                GManager::Instance()->redirect("home/sqlite");
             }
         }
     }

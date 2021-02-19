@@ -250,11 +250,10 @@ class GManager {
     //===============================================
     public function loginRoot() {
         $lApp = $this->mgr->app;
-        if($lApp->login_on == "on") {
-            if($lApp->login_group != "root") {
-                $lApp->message = sprintf("Vous devez vous connecter en tant qu'utilisateur root");
-                $this->redirect("/home/message");
-            }
+        $this->loginOn();
+        if($lApp->login_group != "root") {
+            $lApp->message = sprintf("Vous devez vous connecter en tant qu'utilisateur root");
+            $this->redirect("/home/message");
         }
     }    
     //===============================================
