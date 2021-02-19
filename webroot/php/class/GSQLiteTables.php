@@ -14,6 +14,7 @@ class GSQLiteTables extends GWidget {
         $lTables = gSQLite::Instance()->queryCol("
         select name from sqlite_master
         where type='table'
+        order by name
         ");
         echo sprintf("<div class=''>\n");
         for($i = 0; $i < count($lTables); $i++) {
@@ -29,14 +30,14 @@ class GSQLiteTables extends GWidget {
             echo sprintf("<div class='menu4'>\n");
             //
             echo sprintf("<form class='menu5' action='' method='post'>\n");
-            echo sprintf("<input type='hidden' id='table' name='table' value='%s'/>\n", $lTableLower);
-            echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_table'>
+            echo sprintf("<input type='hidden' name='table' value='%s'/>\n", $lTableLower);
+            echo sprintf("<button class='button4' type='submit' name='req' value='show_table'>
             <i class='icon fa fa-book'></i> Afficher les données</button>\n", $lTableLower);
             echo sprintf("</form>\n");
             //
             echo sprintf("<form class='menu5' action='' method='post'>\n");
-            echo sprintf("<input type='hidden' id='table' name='table' value='%s'/>\n", $lTableLower);
-            echo sprintf("<button class='button4' type='submit' id='req' name='req' value='show_schema'>
+            echo sprintf("<input type='hidden' name='table' value='%s'/>\n", $lTableLower);
+            echo sprintf("<button class='button4' type='submit' name='req' value='show_schema'>
             <i class='icon fa fa-book'></i> Afficher le schema</button>\n", $lTableLower);
             echo sprintf("</form>\n");
             //

@@ -13,6 +13,7 @@ class GSQLiteUi extends GWidget {
         $this->m_widgetMap = GWidget::Create("stackwidget");
         $this->m_widgetMap->addPage("show_tables", "sqlitetables", "Afficher les tables");
         $this->m_widgetMap->addPage("show_table", "sqlitetable", "Afficher une table");
+        $this->m_widgetMap->addPage("show_schema", "sqliteschema", "Afficher une table");
         $this->m_widgetMap->addPage("execute_sql", "sqlitescript", "Exécuter une requête sql");
     }
     //===============================================
