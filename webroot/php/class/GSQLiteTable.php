@@ -39,7 +39,7 @@ class GSQLiteTable extends GWidget {
         //
         if($lPage > $lPageMax) {$lPage = 1;}
         //
-        echo sprintf("<div class='header left overflow'>\n");
+        echo sprintf("<div class='header2 left overflow'>\n");
         //
         echo sprintf("<div class='item7 margin2'>\n");
         echo sprintf("<div class='item'>Total : </div>\n");
@@ -63,7 +63,7 @@ class GSQLiteTable extends GWidget {
         //
         echo sprintf("</div>\n");
         //
-        echo sprintf("<div class='overflow'>\n");
+        echo sprintf("<div class='overflow left'>\n");
         echo sprintf("<div class='box5'>\n");
         echo sprintf("<div class='title3'>%s</div>\n", $this->m_tableName);
         echo sprintf("<table>\n");
@@ -107,7 +107,6 @@ class GSQLiteTable extends GWidget {
         if(isset($_POST["table"])) {
             $this->m_tableName = $_POST["table"];
         }
-        var_dump($_POST);
     }
     //===============================================
 }
