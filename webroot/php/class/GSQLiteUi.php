@@ -3,11 +3,16 @@
 class GSQLiteUi extends GWidget {
     //===============================================
     private $m_widgetMap;
-    private $m_req = "show_tables";
+    private $m_req;
     //===============================================
     public function __construct() {
+        $this->m_req = &$_SESSION["req"];
+        //
+        if(!isset($this->m_req)) {$this->m_req = "show_tables";}
+        //
         $this->m_widgetMap = GWidget::Create("stackwidget");
         $this->m_widgetMap->addPage("show_tables", "sqlitetables", "Afficher les tables");
+        $this->m_widgetMap->addPage("show_table", "sqlitetable", "Afficher une table");
         $this->m_widgetMap->addPage("execute_sql", "sqlitescript", "Exécuter une requête sql");
     }
     //===============================================
@@ -38,8 +43,7 @@ class GSQLiteUi extends GWidget {
         echo sprintf("</div>\n");
         // body
         echo sprintf("<div class='body4'>\n");
-        $lPage = $this->m_widgetMap->getPage($this->m_req);
-        GWidget::Create($lPage)->run();
+        $this->m_widgetMap->run2($this->m_req);
         echo sprintf("</div>\n");
         //
         echo sprintf("</div>\n");
@@ -50,7 +54,7 @@ class GSQLiteUi extends GWidget {
         if(isset($_POST["req"])) {
             $lReq = $_POST["req"];
             $this->m_req = $lReq;
-            if($lReq == "show_table") {
+            if($lReq == "") {
 
             }
         }

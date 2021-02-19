@@ -26,10 +26,11 @@ class GWidget {
         //
         if($key == "sqlite") {return new GSQLiteUi();}
         if($key == "sqlitetables") {return new GSQLiteTables();}
+        if($key == "sqlitetable") {return new GSQLiteTable();}
+        if($key == "sqliteschema") {return new GSQLiteSchema();}
         if($key == "sqlitescript") {return new GSQLiteScript();}
         if($key == "sqlitequery") {return new GSQLiteQuery();}
         if($key == "sqliteoutput") {return new GSQLiteOutput();}
-        if($key == "sqliteshow") {return new GSQLiteShow();}
         //
         if($key == "timesheet") {return new GTimesheetUi();}
         if($key == "filesystem") {return new GFilesystem();}

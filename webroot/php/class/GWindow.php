@@ -20,7 +20,6 @@ class GWindow extends GWidget {
         $lApp->page_map->addPage("home/profile", "profile", "Profil");
         //
         $lApp->page_map->addPage("home/sqlite", "sqlite", "SQLite");
-        $lApp->page_map->addPage("home/sqlite/show", "sqliteshow", "Affichage de la table");
         //
         $lApp->page_map->addPage("home/timesheet", "timesheet", "Feuille de temps");
         $lApp->page_map->addPage("home/filesystem", "filesystem", "Filesystem");

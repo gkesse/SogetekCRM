@@ -26,7 +26,6 @@ class GManager {
         $this->mgr->app->logo_org = "/data/img/logo_org.png";
         $this->mgr->app->filesystem = &$_SESSION["filesystem"];
         $this->mgr->app->view_offset = 10;
-        $this->mgr->app->table_name = &$_SESSION["table_name"];
         $this->mgr->app->login_on = &$_SESSION["login_on"];
         $this->mgr->app->login_group = &$_SESSION["login_group"];
         $this->mgr->app->root_name = "root";
@@ -306,8 +305,6 @@ class sGApp {
     public $filesystem;
     // view
     public $view_offset;
-    // table
-    public $table_name;
     // login
     public $login_on;
     public $login_group;

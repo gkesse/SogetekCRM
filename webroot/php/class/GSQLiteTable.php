@@ -1,15 +1,16 @@
 <?php   
 //===============================================
-class GSQLiteShow extends GWidget {
+class GSQLiteTable extends GWidget {
     //===============================================
-    private $order = "";
+    private $m_tableName;
     private $m_pageNumber;
     private $m_colMax;
     //===============================================
     public function __construct() {
-        $this->m_pageNumber = &$_SESSION["sqlite_show_page_number"];
-        $this->m_colMax = &$_SESSION["sqlite_show_col_max"];
-        
+        $this->m_tableName = &$_SESSION["sqlite_table_table_name"];
+        $this->m_pageNumber = &$_SESSION["sqlite_table_page_number"];
+        $this->m_colMax = &$_SESSION["sqlite_table_col_max"];
+        //
         if(!isset($this->m_pageNumber)) {$this->m_pageNumber = 1;}
         if(!isset($this->m_colMax)) {$this->m_colMax = 20;}
     }
@@ -18,13 +19,16 @@ class GSQLiteShow extends GWidget {
     //===============================================
     public function run() {
         $lApp = GManager::Instance()->getData()->app;
+        //
         $this->request();
+        //
         $lDataMap = array();
         $lHeaders = array();
-        if($lApp->table_name != "") {
+        //
+        if($this->m_tableName != "") {
             $lDataMap = GSQLite::Instance()->queryMap(sprintf("
-            select * from %s %s
-            ", $lApp->table_name, $this->order));
+            select * from %s
+            ", $this->m_tableName));
             $lHeaders = GSQLite::Instance()->getHeaders();
         }
         //
@@ -42,26 +46,26 @@ class GSQLiteShow extends GWidget {
         echo sprintf("<div class='item'>%d</div>\n", $lTotal);
         echo sprintf("</div>\n");
         //
-        echo sprintf("<form id='sqlite_show_page_number_form' class='item7 margin2' action='' method='post'>\n");
+        echo sprintf("<form id='sqlite_table_page_number_form' class='item7 margin2' action='' method='post'>\n");
         echo sprintf("<div class='item'>Page : </div>\n");
         echo sprintf("<input type='hidden' id='req' name='req' value='page_number'/>\n");
         echo sprintf("<input style='min-width: 30px;' class='item' type='number' id='page' name='page' value='%d' min='1' max='%d' maxlength='6' size='6' 
-        onchange='onItemClick(this, \"sqlite_show_page_number\")'/>\n", $lPage, $lPageMax);
+        onchange='onItemClick(this, \"sqlite_table_page_number\")'/>\n", $lPage, $lPageMax);
         echo sprintf("<div class='item'> / %d</div>\n", $lPageMax);
         echo sprintf("</form>\n");
         //
-        echo sprintf("<form id='sqlite_show_col_max_form' class='item7' action='' method='post'>\n");
+        echo sprintf("<form id='sqlite_table_col_max_form' class='item7' action='' method='post'>\n");
         echo sprintf("<div class='item'>Max : </div>\n");
         echo sprintf("<input type='hidden' id='req' name='req' value='col_max'/>\n");
         echo sprintf("<input style='min-width: 30px;' class='item' type='number' id='page' name='page' value='%d' min='10' max='50' maxlength='6' size='6' step='10'
-        onchange='onItemClick(this, \"sqlite_show_col_max\")'/>\n", $lMax);
+        onchange='onItemClick(this, \"sqlite_table_col_max\")'/>\n", $lMax);
         echo sprintf("</form>\n");
         //
         echo sprintf("</div>\n");
         //
         echo sprintf("<div class='overflow'>\n");
         echo sprintf("<div class='box5'>\n");
-        echo sprintf("<div class='title3'>%s</div>\n", $lApp->table_name);
+        echo sprintf("<div class='title3'>%s</div>\n", $this->m_tableName);
         echo sprintf("<table>\n");
         echo sprintf("<thead>\n");
         echo sprintf("<tr>\n");
@@ -100,6 +104,10 @@ class GSQLiteShow extends GWidget {
                 $this->m_colMax = $_POST["page"];
             }
         }
+        if(isset($_POST["table"])) {
+            $this->m_tableName = $_POST["table"];
+        }
+        var_dump($_POST);
     }
     //===============================================
 }

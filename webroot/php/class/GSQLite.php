@@ -13,6 +13,7 @@ class GSQLite {
         // config_data
         $this->queryWrite(sprintf("
         create table if not exists config_data (
+        user_name text,
         config_key text,
         config_value text
         )"));

@@ -41,8 +41,7 @@ class GSQLiteScript extends GWidget {
         echo sprintf("</div>\n");
         // body
         echo sprintf("<div class='body4'>\n");
-        $lPage = $this->m_widgetMap->getPage($this->m_action);
-        GWidget::Create($lPage)->run();
+        $this->m_widgetMap->run2($this->m_action);
         echo sprintf("</div>\n");
         //
         echo sprintf("</div>\n");
@@ -51,9 +50,9 @@ class GSQLiteScript extends GWidget {
     public function request() {
         $lApp = GManager::Instance()->getData()->app;
         if(isset($_POST["action"])) {
-            $lReq = $_POST["action"];
-            $this->m_action = $lReq;
-            if($lReq == "") {
+            $lAction = $_POST["action"];
+            $this->m_action = $lAction;
+            if($lAction == "") {
 
             }
         }
